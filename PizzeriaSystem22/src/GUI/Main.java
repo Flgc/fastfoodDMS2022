@@ -5,6 +5,8 @@
  */
 package GUI;
 
+import Utility.ScreenBackground;
+import java.awt.GridLayout;
 import javax.swing.JFrame;
 
 /**
@@ -13,12 +15,17 @@ import javax.swing.JFrame;
  */
 public class Main extends javax.swing.JFrame {
 
-    /**
-     * Creates new form Main
-     */
+    ScreenBackground scrt;
+    
     public Main() {
         initComponents();
         setExtendedState(JFrame.MAXIMIZED_BOTH);
+        
+        setLayout(new GridLayout());
+        
+        scrt = new ScreenBackground("img/pizza-fundo.jpg");
+        getContentPane().add(scrt);
+        
     }
 
     /**
