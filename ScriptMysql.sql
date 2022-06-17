@@ -83,4 +83,7 @@ ALTER TABLE dbpizzerias.tb_item ADD CONSTRAINT FK_itemClient	   FOREIGN KEY (cod
 ALTER TABLE dbpizzerias.tb_item ADD CONSTRAINT FK_itemRequest	   FOREIGN KEY (cod_req_ite) REFERENCES dbpizzerias.tb_request(cod_req);
 ALTER TABLE dbpizzerias.tb_item ADD CONSTRAINT FK_itemMenu 		   FOREIGN KEY (cod_men_ite) REFERENCES dbpizzerias.tb_menu(cod_men);
 
+ALTER TABLE tb_request 
+ADD status_req varchar(50);
+
 
