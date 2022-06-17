@@ -16,6 +16,7 @@ import javax.swing.JFrame;
 public class Main extends javax.swing.JFrame {
 
     ScreenBackground scrt;
+    ClientIntFrameform clientIntFrameform;
     
     public Main() {
         initComponents();
@@ -54,6 +55,11 @@ public class Main extends javax.swing.JFrame {
         Jfm_Registration.setText("Cadastro");
 
         Jfm_Registration_Menu_Client.setText("Clientes");
+        Jfm_Registration_Menu_Client.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Jfm_Registration_Menu_ClientActionPerformed(evt);
+            }
+        });
         Jfm_Registration.add(Jfm_Registration_Menu_Client);
 
         Jfm_Registration_Menu_Employee.setText("Funcionários");
@@ -104,6 +110,12 @@ public class Main extends javax.swing.JFrame {
     private void Jfm_Registration_Menu_MenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Jfm_Registration_Menu_MenuActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_Jfm_Registration_Menu_MenuActionPerformed
+
+    private void Jfm_Registration_Menu_ClientActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Jfm_Registration_Menu_ClientActionPerformed
+        clientIntFrameform = new ClientIntFrameform();
+        scrt.add(clientIntFrameform);
+        clientIntFrameform.setVisible(true);
+    }//GEN-LAST:event_Jfm_Registration_Menu_ClientActionPerformed
 
     /**
      * @param args the command line arguments

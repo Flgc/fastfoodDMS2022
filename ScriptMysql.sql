@@ -55,6 +55,7 @@ CREATE TABLE `tb_request` (
   `total_req` decimal(10,2) NOT NULL,
   `cod_emp_req` int NOT NULL,
   `cod_del_req` int NOT NULL,
+  `status_req`  varchar(50) NOT NULL,
   PRIMARY KEY (`cod_req`,`cod_cli_req`,`cod_emp_req`,`cod_del_req`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
