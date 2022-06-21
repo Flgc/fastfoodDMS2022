@@ -5,9 +5,11 @@
  */
 package GUI;
 
+import java.text.SimpleDateFormat;
 import javax.swing.JFormattedTextField;
 import javax.swing.JOptionPane;
 import javax.swing.text.MaskFormatter;
+import java.util.Date;
 
 /**
  *
@@ -20,11 +22,18 @@ public class ClientIntFrameform extends javax.swing.JInternalFrame {
      */
     
     MaskFormatter TelFormat;
+    SimpleDateFormat dateFormat;
+    Date ActualDate;
     
     public ClientIntFrameform() {
         initComponents();
-         txt_codCli.setEnabled(false);
+        txt_codCli.setEnabled(false);  
+        txt_dateCli.setEnabled(false);
         fieldsEnable(false);
+        
+        dateFormat = new SimpleDateFormat("dd/MM/yyyy");
+        ActualDate = new Date(); 
+        txt_dateCli.setText(dateFormat.format(ActualDate));
     }
 
     /**
@@ -131,6 +140,7 @@ public class ClientIntFrameform extends javax.swing.JInternalFrame {
         jLabel9.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         jLabel9.setText("Data de Cadastro");
 
+        txt_dateCli.setEditable(false);
         txt_dateCli.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
 
         jLabel10.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
@@ -193,6 +203,15 @@ public class ClientIntFrameform extends javax.swing.JInternalFrame {
                                             .addComponent(txt_codCli, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE)
                                             .addComponent(txt_adressCli)))
                                     .addGroup(layout.createSequentialGroup()
+                                        .addGap(6, 6, 6)
+                                        .addComponent(jLabel6)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(txt_phoneCli, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(43, 43, 43)
+                                        .addComponent(jLabel7)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(txt_emailCli))
+                                    .addGroup(layout.createSequentialGroup()
                                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                             .addGroup(layout.createSequentialGroup()
                                                 .addGap(37, 37, 37)
@@ -216,17 +235,8 @@ public class ClientIntFrameform extends javax.swing.JInternalFrame {
                                                 .addGap(41, 41, 41)
                                                 .addComponent(jLabel9)
                                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                                .addComponent(txt_dateCli, javax.swing.GroupLayout.PREFERRED_SIZE, 133, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                        .addGap(0, 0, Short.MAX_VALUE))
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addGap(6, 6, 6)
-                                        .addComponent(jLabel6)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(txt_phoneCli, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(43, 43, 43)
-                                        .addComponent(jLabel7)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(txt_emailCli))))
+                                                .addComponent(txt_dateCli, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                        .addGap(0, 0, Short.MAX_VALUE))))
                             .addGroup(layout.createSequentialGroup()
                                 .addGap(250, 250, 250)
                                 .addComponent(jLabel2)
@@ -325,9 +335,8 @@ public class ClientIntFrameform extends javax.swing.JInternalFrame {
 
 
     final void fieldsEnable(boolean value) {
-        //txt_Search.setEnabled(value);
-        txt_adressCli.setEnabled(value);       
-        txt_dateCli.setEnabled(value);
+        //txt_Search.setEnabled(value);        
+        txt_adressCli.setEnabled(value);    
         txt_districtCli.setEnabled(value);
         txt_emailCli.setEnabled(value);
         txt_nameCli.setEnabled(value);
