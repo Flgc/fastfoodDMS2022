@@ -29,6 +29,7 @@ public class DbConnection {
         
         try {
             Con = DriverManager.getConnection(conURL, conUser,conPassword);
+            Con.setAutoCommit(false);
              //JOptionPane.showMessageDialog(null, "Conectado com Sucesso", "Conectado", 1);            
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, "Erro ao Conectar com o Banco", "Error", 0);

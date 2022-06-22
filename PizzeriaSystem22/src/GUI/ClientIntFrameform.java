@@ -5,6 +5,8 @@
  */
 package GUI;
 
+import Beans.ClientBeans;
+import Controller.ClientController;
 import java.text.SimpleDateFormat;
 import javax.swing.JFormattedTextField;
 import javax.swing.JOptionPane;
@@ -24,6 +26,9 @@ public class ClientIntFrameform extends javax.swing.JInternalFrame {
     MaskFormatter TelFormat;
     SimpleDateFormat dateFormat;
     Date ActualDate;
+    ClientBeans ClientB; 
+    ClientController ClientC;
+    
     
     public ClientIntFrameform() {
         initComponents();
@@ -34,6 +39,9 @@ public class ClientIntFrameform extends javax.swing.JInternalFrame {
         dateFormat = new SimpleDateFormat("dd/MM/yyyy");
         ActualDate = new Date(); 
         txt_dateCli.setText(dateFormat.format(ActualDate));
+        
+        ClientB = new ClientBeans();
+        ClientC = new ClientController();
     }
 
     /**
@@ -77,6 +85,7 @@ public class ClientIntFrameform extends javax.swing.JInternalFrame {
         jScrollPane2 = new javax.swing.JScrollPane();
         Tab_Clie = new javax.swing.JTable();
         jSeparator4 = new javax.swing.JSeparator();
+        btn_Insert = new javax.swing.JButton();
         btn_New = new javax.swing.JButton();
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
@@ -169,6 +178,13 @@ public class ClientIntFrameform extends javax.swing.JInternalFrame {
         });
         jScrollPane2.setViewportView(Tab_Clie);
 
+        btn_Insert.setText("Cadastrar");
+        btn_Insert.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_InsertActionPerformed(evt);
+            }
+        });
+
         btn_New.setText("Novo");
         btn_New.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -188,9 +204,6 @@ public class ClientIntFrameform extends javax.swing.JInternalFrame {
                     .addComponent(jScrollPane2)
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(31, 31, 31)
-                                .addComponent(btn_New, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(layout.createSequentialGroup()
                                 .addContainerGap()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -244,6 +257,12 @@ public class ClientIntFrameform extends javax.swing.JInternalFrame {
                                 .addComponent(txt_nameCli, javax.swing.GroupLayout.PREFERRED_SIZE, 389, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addGap(0, 27, Short.MAX_VALUE)))
                 .addContainerGap())
+            .addGroup(layout.createSequentialGroup()
+                .addGap(43, 43, 43)
+                .addComponent(btn_New, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(btn_Insert)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -271,15 +290,16 @@ public class ClientIntFrameform extends javax.swing.JInternalFrame {
                     .addComponent(jLabel7)
                     .addComponent(txt_emailCli, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel8)
-                    .addComponent(txt_zipCli, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(jLabel9)
-                        .addComponent(txt_dateCli, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(txt_dateCli, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jLabel8)
+                        .addComponent(txt_zipCli, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 11, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 23, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 35, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel10)
                     .addComponent(txt_Search, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -290,12 +310,19 @@ public class ClientIntFrameform extends javax.swing.JInternalFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jSeparator4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(btn_New)
-                .addContainerGap(37, Short.MAX_VALUE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btn_Insert)
+                    .addComponent(btn_New))
+                .addContainerGap(25, Short.MAX_VALUE))
         );
 
         setBounds(0, 0, 735, 494);
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btn_InsertActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_InsertActionPerformed
+        popularClientBeans();
+        ClientC.checkData(ClientB);
+    }//GEN-LAST:event_btn_InsertActionPerformed
 
     private void btn_NewActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_NewActionPerformed
         fieldsEnable(true);
@@ -304,6 +331,7 @@ public class ClientIntFrameform extends javax.swing.JInternalFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTable Tab_Clie;
+    private javax.swing.JButton btn_Insert;
     private javax.swing.JButton btn_New;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
@@ -345,4 +373,14 @@ public class ClientIntFrameform extends javax.swing.JInternalFrame {
         txt_zipCli.setEnabled(value);    
     }
     
+    final void popularClientBeans() {
+        ClientB.setNameCli(txt_nameCli.getText());
+        ClientB.setAdressCli(txt_adressCli.getText());
+        ClientB.setDistrictCli(txt_districtCli.getText());
+        ClientB.setStateCli(txt_stateCli.getText());
+        ClientB.setPhoneCli(txt_phoneCli.getText());
+        ClientB.setEmailCli(txt_emailCli.getText());
+        ClientB.setZipCli(txt_zipCli.getText());
+        ClientB.setDateCli(txt_dateCli.getText());
+    }    
 }
