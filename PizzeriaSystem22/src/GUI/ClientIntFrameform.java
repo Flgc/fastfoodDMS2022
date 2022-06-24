@@ -179,6 +179,8 @@ public class ClientIntFrameform extends javax.swing.JInternalFrame {
         jScrollPane2.setViewportView(Tab_Clie);
 
         btn_Insert.setText("Cadastrar");
+        btn_Insert.setMaximumSize(new java.awt.Dimension(57, 23));
+        btn_Insert.setMinimumSize(new java.awt.Dimension(57, 23));
         btn_Insert.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btn_InsertActionPerformed(evt);
@@ -186,6 +188,8 @@ public class ClientIntFrameform extends javax.swing.JInternalFrame {
         });
 
         btn_New.setText("Novo");
+        btn_New.setMaximumSize(new java.awt.Dimension(57, 23));
+        btn_New.setMinimumSize(new java.awt.Dimension(57, 23));
         btn_New.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btn_NewActionPerformed(evt);
@@ -261,7 +265,7 @@ public class ClientIntFrameform extends javax.swing.JInternalFrame {
                 .addGap(43, 43, 43)
                 .addComponent(btn_New, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(btn_Insert)
+                .addComponent(btn_Insert, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -311,8 +315,8 @@ public class ClientIntFrameform extends javax.swing.JInternalFrame {
                 .addComponent(jSeparator4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btn_Insert)
-                    .addComponent(btn_New))
+                    .addComponent(btn_Insert, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btn_New, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(25, Short.MAX_VALUE))
         );
 
@@ -326,6 +330,8 @@ public class ClientIntFrameform extends javax.swing.JInternalFrame {
 
     private void btn_NewActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_NewActionPerformed
         fieldsEnable(true);
+        ClientC.CodControll();  
+        txt_codCli.setText(ClientC.CodControll());
     }//GEN-LAST:event_btn_NewActionPerformed
 
 

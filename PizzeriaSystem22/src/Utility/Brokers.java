@@ -15,6 +15,6 @@ public class Brokers {
     }  
     
     public static String DateConverterUsToBr(String Data) {
-     return Data.substring(8, 10) + "-" + Data.substring(5, 7) + "-" + Data.substring(0, 4);
+     return Data.substring(8, 10) + "/" + Data.substring(5, 7) + "/" + Data.substring(0, 4);
     }      
 }

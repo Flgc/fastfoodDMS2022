@@ -62,4 +62,8 @@ public class ClientController {
         
         return true;
     }    
+    
+    public String CodControll(){
+        return ClientD.nextClient();
+    }
 }

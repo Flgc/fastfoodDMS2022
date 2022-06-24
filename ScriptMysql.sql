@@ -86,4 +86,4 @@ ALTER TABLE dbpizzerias.tb_item ADD CONSTRAINT FK_itemMenu 		   FOREIGN KEY (cod
 ALTER TABLE tb_request 
 ADD status_req varchar(50);
 
-
+select * from tb_client

@@ -12,6 +12,7 @@ import java.sql.SQLException;
 import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 import Utility.Brokers;
+import  java.sql.ResultSet;
 
 /**
  *
@@ -37,10 +38,27 @@ public class ClientDAO {
             
             st.execute();
             DbConnection.getConnection().commit();
-            JOptionPane.showMessageDialog(null, "Registro Salvo com Sucesso!", "Atenção !", 1, new ImageIcon("img/ok.png"));  
+            //JOptionPane.showMessageDialog(null, "Registro Salvo com Sucesso!", "Atenção !", 1, new ImageIcon("img/ok.png"));  
             
         } catch (SQLException ex) {
             JOptionPane.showMessageDialog(null, "Erro ao Conectar com o Banco", "Error", 0, new ImageIcon("img/btn_sair.png"));            
+        }
+    }
+    
+    public String nextClient() {
+        String SQLSelection = "select * from tb_client order by cod_cli desc limit 1";
+        try {
+            PreparedStatement st = DbConnection.getConnection().prepareStatement( SQLSelection);
+            ResultSet rs = st.executeQuery();
+            if (rs.next()){
+                return (Integer.parseInt(rs.getString("cod_cli")) + 1) + " ";
+            }
+            else {
+                return "1";
+            }
+        } catch (SQLException ex) {
+           JOptionPane.showMessageDialog(null, "Erro ao Buscar o Registro", "Error", 0, new ImageIcon("img/btn_sair.png"));    
+           return "0";
         }
     }
     
