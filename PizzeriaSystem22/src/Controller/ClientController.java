@@ -9,6 +9,7 @@ import Beans.ClientBeans;
 import DAO.ClientDAO;
 import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -65,5 +66,9 @@ public class ClientController {
     
     public String CodControll(){
         return ClientD.nextClient();
+    }
+    
+    public void findControll(String sSearch, DefaultTableModel mModel){
+        ClientD.clientFind(sSearch, mModel);
     }
 }

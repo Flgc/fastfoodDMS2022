@@ -12,6 +12,7 @@ import javax.swing.JFormattedTextField;
 import javax.swing.JOptionPane;
 import javax.swing.text.MaskFormatter;
 import java.util.Date;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -28,6 +29,7 @@ public class ClientIntFrameform extends javax.swing.JInternalFrame {
     Date ActualDate;
     ClientBeans ClientB; 
     ClientController ClientC;
+    DefaultTableModel Model;
     
     
     public ClientIntFrameform() {
@@ -35,13 +37,12 @@ public class ClientIntFrameform extends javax.swing.JInternalFrame {
         txt_codCli.setEnabled(false);  
         txt_dateCli.setEnabled(false);
         fieldsEnable(false);
-        
         dateFormat = new SimpleDateFormat("dd/MM/yyyy");
-        ActualDate = new Date(); 
-        txt_dateCli.setText(dateFormat.format(ActualDate));
-        
+
         ClientB = new ClientBeans();
         ClientC = new ClientController();
+        
+        Model = (DefaultTableModel) Tab_Clie.getModel();
     }
 
     /**
@@ -156,13 +157,15 @@ public class ClientIntFrameform extends javax.swing.JInternalFrame {
         jLabel10.setText("Buscar");
 
         txt_Search.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        txt_Search.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                txt_SearchKeyReleased(evt);
+            }
+        });
 
         Tab_Clie.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null}
+
             },
             new String [] {
                 "Código", "Nome", "Endereço", "Bairro", "Estado", "Telefone", "E-mail", "Cep"
@@ -329,10 +332,17 @@ public class ClientIntFrameform extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_btn_InsertActionPerformed
 
     private void btn_NewActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_NewActionPerformed
+        ActualDate = new Date(); 
+        txt_dateCli.setText(dateFormat.format(ActualDate));        
         fieldsEnable(true);
         ClientC.CodControll();  
         txt_codCli.setText(ClientC.CodControll());
     }//GEN-LAST:event_btn_NewActionPerformed
+
+    private void txt_SearchKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txt_SearchKeyReleased
+        Model.setNumRows(0);
+        ClientC.findControll(txt_Search.getText(), Model);
+    }//GEN-LAST:event_txt_SearchKeyReleased
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

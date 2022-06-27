@@ -13,6 +13,7 @@ import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 import Utility.Brokers;
 import  java.sql.ResultSet;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -60,6 +61,21 @@ public class ClientDAO {
            JOptionPane.showMessageDialog(null, "Erro ao Buscar o Registro", "Error", 0, new ImageIcon("img/btn_sair.png"));    
            return "0";
         }
+    }
+    
+    public void clientFind(String sSearch, DefaultTableModel mModel){        
+        try {        
+        String SQLSelection = "select * from tb_client where name_cli like '%" + sSearch + "%' ";  
+        PreparedStatement st = DbConnection.getConnection().prepareStatement( SQLSelection);
+        ResultSet rs = st.executeQuery();
+        while(rs.next()){
+            mModel.addRow(new Object[] {rs.getString("cod_cli"), rs.getString("name_cli"),
+                rs.getString("adress_cli"), rs.getString("district_cli"), rs.getString("state_cli"), rs.getString("phone_cli"),
+                rs.getString("email_cli"), rs.getString("zip_cli")});
+        }
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, "Erro ao Buscar Cliente", "Error", 0, new ImageIcon("img/btn_sair.png"));    
+        }        
     }
     
 }
