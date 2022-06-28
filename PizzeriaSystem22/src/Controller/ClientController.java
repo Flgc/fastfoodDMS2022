@@ -71,4 +71,8 @@ public class ClientController {
     public void findControll(String sSearch, DefaultTableModel mModel){
         ClientD.clientFind(sSearch, mModel);
     }
+    
+    public ClientBeans fillFielsControll(int Cod){
+        return ClientD.fillFiels(Cod);    
+    }
 }

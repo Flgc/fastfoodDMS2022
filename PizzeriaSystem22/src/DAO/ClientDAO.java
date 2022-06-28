@@ -20,7 +20,7 @@ import javax.swing.table.DefaultTableModel;
  * @author fabio
  */
 public class ClientDAO {
-    public ClientDAO(){
+    public ClientDAO(){        
     }
     
     public void insertClient(ClientBeans client) {
@@ -76,6 +76,31 @@ public class ClientDAO {
         } catch (SQLException ex) {
             JOptionPane.showMessageDialog(null, "Erro ao Buscar Cliente", "Error", 0, new ImageIcon("img/btn_sair.png"));    
         }        
+    }
+    
+    public ClientBeans fillFiels(int Cod){
+        ClientBeans Client = new ClientBeans();        
+        try {        
+        String SQLSelection = "select * from tb_client where cod_cli = ?";  
+        PreparedStatement st = DbConnection.getConnection().prepareStatement( SQLSelection);
+        st.setInt(1, Cod);
+        ResultSet rs = st.executeQuery();
+        if(rs.next()){
+            Client.setCodCli(rs.getInt("cod_cli"));
+            Client.setNameCli(rs.getString("name_cli"));
+            Client.setAdressCli(rs.getString("adress_cli"));
+            Client.setDistrictCli(rs.getString("district_cli"));
+            Client.setStateCli(rs.getString("state_cli"));
+            Client.setZipCli(rs.getString("zip_cli"));
+            Client.setEmailCli(rs.getString("email_cli"));
+            Client.setPhoneCli(rs.getString("phone_cli"));
+            Client.setDateCli(Brokers.DateConverterUsToBr(rs.getString("date_cad_cli")));
+        }
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, "Erro ao Buscar Cliente", "Error", 0, new ImageIcon("img/btn_sair.png"));    
+        }   
+        
+        return Client;
     }
     
 }
