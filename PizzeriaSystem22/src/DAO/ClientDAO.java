@@ -23,26 +23,26 @@ public class ClientDAO {
     public ClientDAO(){        
     }
     
-    public void insertClient(ClientBeans client) {
+    public void insertClient(ClientBeans Client) {
         try {
-            String SQLInsertion = "insert tb_client (  name_cli, adress_cli, district_cli, state_cli, phone_cli, email_cli"
-                    + ", zip_cli, date_cad_cli) values (?, ? ,?, ?, ?, ?, ?, ?)";
+            String SQLInsertion = "insert into tb_client (  name_cli, adress_cli, district_cli, state_cli, phone_cli, "
+                    + "email_cl, zip_cli, date_cad_cli) values (?, ? ,?, ?, ?, ?, ?, ?)";
             PreparedStatement st = DbConnection.getConnection().prepareStatement( SQLInsertion);
-            st.setString(1, client.getNameCli());
-            st.setString(2, client.getAdressCli());
-            st.setString(3, client.getDistrictCli());
-            st.setString(4, client.getStateCli());
-            st.setString(5, client.getPhoneCli());
-            st.setString(6, client.getEmailCli());
-            st.setString(7, client.getZipCli());
-            st.setString(8, Brokers.DateConverterBrToUs(client.getDateCli()));
+            st.setString(1, Client.getNameCli());
+            st.setString(2, Client.getAdressCli());
+            st.setString(3, Client.getDistrictCli());
+            st.setString(4, Client.getStateCli());
+            st.setString(5, Client.getPhoneCli());
+            st.setString(6, Client.getEmailCli());
+            st.setString(7, Client.getZipCli());
+            st.setString(8, Brokers.DateConverterBrToUs(Client.getDateCli()));
             
             st.execute();
             DbConnection.getConnection().commit();
-            //JOptionPane.showMessageDialog(null, "Registro Salvo com Sucesso!", "Atenção !", 1, new ImageIcon("img/ok.png"));  
+            JOptionPane.showMessageDialog(null, "Registro Salvo com Sucesso!", "Atenção !", 1, new ImageIcon("img/ok.png"));  
             
         } catch (SQLException ex) {
-            JOptionPane.showMessageDialog(null, "Erro ao Conectar com o Banco", "Error", 0, new ImageIcon("img/btn_sair.png"));            
+            JOptionPane.showMessageDialog(null, "Erro ao Inserir Cliente no Banco", "Error", 0, new ImageIcon("img/btn_sair.png"));            
         }
     }
     
@@ -101,6 +101,29 @@ public class ClientDAO {
         }   
         
         return Client;
+    }
+    
+    public void clientEdit(ClientBeans Client){
+        try {
+            String SQLInsertion = "update tb_client set name_cli = ?, adress_cli = ?, district_cli =  ?, state_cli = ?,"
+                    + " phone_cli = ?, email_cli = ?, zip_cli = ? where cod_cli  = ?";
+            PreparedStatement st = DbConnection.getConnection().prepareStatement( SQLInsertion);
+            st.setString(1, Client.getNameCli());
+            st.setString(2, Client.getAdressCli());
+            st.setString(3, Client.getDistrictCli());
+            st.setString(4, Client.getStateCli());
+            st.setString(5, Client.getPhoneCli());
+            st.setString(6, Client.getEmailCli());
+            st.setString(7, Client.getZipCli());
+            st.setInt(8, Client.getCodCli());
+            
+            st.execute();
+            DbConnection.getConnection().commit();
+            JOptionPane.showMessageDialog(null, "Registro Editado com Sucesso!", "Atenção !", 1, new ImageIcon("img/ok.png"));  
+            
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, "Erro ao Editar Registro no Banco", "Error", 0, new ImageIcon("img/btn_sair.png"));            
+        }    
     }
     
 }

@@ -75,4 +75,47 @@ public class ClientController {
     public ClientBeans fillFielsControll(int Cod){
         return ClientD.fillFiels(Cod);    
     }
+    
+    public boolean checkDataEdit(ClientBeans Client){
+        if(Client.getNameCli().equals(" ")){
+            JOptionPane.showMessageDialog(null, "Preencha o campo Nome", "Error", 0, new ImageIcon("img/dberro.png"));  
+            return false;
+        }
+
+        if(Client.getAdressCli().equals(" ")){
+            JOptionPane.showMessageDialog(null, "Preencha o campo Endereço", "Error", 0, new ImageIcon("img/dberro.png"));  
+            return false;
+        }
+        
+        if(Client.getDistrictCli().equals(" ")){
+            JOptionPane.showMessageDialog(null, "Preencha o campo Bairro", "Error", 0, new ImageIcon("img/dberro.png"));  
+            return false;
+        }
+
+        if(Client.getStateCli().equals(" ")){
+            JOptionPane.showMessageDialog(null, "Preencha o campo Estado", "Error", 0, new ImageIcon("img/dberro.png"));  
+            return false;
+        }
+
+        if(Client.getPhoneCli().equals("(  )      -    ")){
+            JOptionPane.showMessageDialog(null, "Preencha o campo Telefone", "Error", 0, new ImageIcon("img/dberro.png"));  
+            return false;
+        }
+
+        if(Client.getEmailCli().equals(" ")){
+            JOptionPane.showMessageDialog(null, "Preencha o campo Email", "Error", 0, new ImageIcon("img/dberro.png"));  
+            return false;
+        }
+
+        if(Client.getZipCli().equals(" ")){
+            JOptionPane.showMessageDialog(null, "Preencha o campo Cep", "Error", 0, new ImageIcon("img/dberro.png"));  
+            return false;
+        }  
+        
+        ClientD.clientEdit(Client);
+        
+        return true;
+    }  
+       
+       
 }
