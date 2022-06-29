@@ -7,44 +7,71 @@
         <Menu class="javax.swing.JMenu" name="Jfm_Registration">
           <Properties>
             <Property name="text" type="java.lang.String" value="Cadastro"/>
+            <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
+              <Color id="Hand Cursor"/>
+            </Property>
           </Properties>
           <SubComponents>
-            <MenuItem class="javax.swing.JMenuItem" name="Jfm_Registration_Menu_Client">
+            <MenuItem class="javax.swing.JMenuItem" name="Jfm_RegistrationMenuClient">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Clientes"/>
+                <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
+                  <Color id="Hand Cursor"/>
+                </Property>
               </Properties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="Jfm_Registration_Menu_ClientActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="Jfm_RegistrationMenuClientActionPerformed"/>
               </Events>
             </MenuItem>
-            <MenuItem class="javax.swing.JMenuItem" name="Jfm_Registration_Menu_Employee">
+            <MenuItem class="javax.swing.JMenuItem" name="Jfm_RegistrationMenuEmployee">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Funcion&#xe1;rios"/>
-              </Properties>
-            </MenuItem>
-            <MenuItem class="javax.swing.JMenuItem" name="Jfm_Registration_Menu_Menu">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="Card&#xe1;pio"/>
+                <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
+                  <Color id="Hand Cursor"/>
+                </Property>
               </Properties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="Jfm_Registration_Menu_MenuActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="Jfm_RegistrationMenuEmployeeActionPerformed"/>
               </Events>
             </MenuItem>
-            <MenuItem class="javax.swing.JMenuItem" name="Jfm_Registration_Menu_Deliveryman">
+            <MenuItem class="javax.swing.JMenuItem" name="Jfm_RegistrationMenuMenu">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Card&#xe1;pio"/>
+                <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
+                  <Color id="Hand Cursor"/>
+                </Property>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="Jfm_RegistrationMenuMenuActionPerformed"/>
+              </Events>
+            </MenuItem>
+            <MenuItem class="javax.swing.JMenuItem" name="Jfm_RegistrationMenuDeliveryman">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Entregador"/>
+                <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
+                  <Color id="Hand Cursor"/>
+                </Property>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="Jfm_RegistrationMenuDeliverymanActionPerformed"/>
+              </Events>
             </MenuItem>
           </SubComponents>
         </Menu>
         <Menu class="javax.swing.JMenu" name="Jfm_Cashier">
           <Properties>
             <Property name="text" type="java.lang.String" value="Caixa"/>
+            <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
+              <Color id="Hand Cursor"/>
+            </Property>
           </Properties>
           <SubComponents>
-            <MenuItem class="javax.swing.JMenuItem" name="Jfm_Cashier_Request">
+            <MenuItem class="javax.swing.JMenuItem" name="Jfm_CashierRequest">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Pedido"/>
+                <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
+                  <Color id="Hand Cursor"/>
+                </Property>
               </Properties>
             </MenuItem>
           </SubComponents>
@@ -52,11 +79,17 @@
         <Menu class="javax.swing.JMenu" name="Jfm_Report">
           <Properties>
             <Property name="text" type="java.lang.String" value="Relat&#xf3;rios"/>
+            <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
+              <Color id="Hand Cursor"/>
+            </Property>
           </Properties>
         </Menu>
         <Menu class="javax.swing.JMenu" name="Jfm_Exit">
           <Properties>
             <Property name="text" type="java.lang.String" value="Sair"/>
+            <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
+              <Color id="Hand Cursor"/>
+            </Property>
           </Properties>
         </Menu>
       </SubComponents>
