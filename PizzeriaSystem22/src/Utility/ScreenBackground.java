@@ -18,7 +18,8 @@ public class ScreenBackground extends JDesktopPane{
     private Image img;
     
     public ScreenBackground (String img) {
-        this.img = new ImageIcon(img).getImage();
+       this.img = new ImageIcon(img).getImage();
+       //this.img = new ImageIcon(Main.class.getResource(img)).getImage();
     }  
     
     @Override

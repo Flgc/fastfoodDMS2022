@@ -28,17 +28,17 @@ public class Main extends javax.swing.JFrame {
         scrt = new ScreenBackground("img/pizza-fundo.jpg");
         getContentPane().add(scrt);
         
-        Jfm_RegistrationMenuClient.setIcon(new ImageIcon("img/ico_clientes.png") );
-        Jfm_RegistrationMenuEmployee.setIcon(new ImageIcon("img/ico_func.png") );
-        Jfm_RegistrationMenuMenu.setIcon(new ImageIcon("img/ico_cardapio.png") );
-        Jfm_RegistrationMenuDeliveryman.setIcon(new ImageIcon("img/ico_boy.png") );
-        Jfm_Registration.setIcon(new ImageIcon("img/inserir-32.png") );
-        Jfm_Cashier.setIcon(new ImageIcon("img/ico_caixa.png") );
-        Jfm_Report.setIcon(new ImageIcon("img/ico_rel.png") );
-        Jfm_Exit.setIcon(new ImageIcon("img/ico_sair.png") );
+        Jfm_RegistrationMenuClient.setIcon(new ImageIcon(getClass().getResource("/Icons/ico_clientes.png")));
+        Jfm_RegistrationMenuEmployee.setIcon(new ImageIcon(getClass().getResource("/Icons/ico_func.png")));
+        Jfm_RegistrationMenuMenu.setIcon(new ImageIcon(getClass().getResource("/Icons/ico_cardapio.png")));
+        Jfm_RegistrationMenuDeliveryman.setIcon(new ImageIcon(getClass().getResource("/Icons/ico_boy.png")));
+        Jfm_Registration.setIcon(new ImageIcon(getClass().getResource("/Icons/inserir-32.png")));
+        Jfm_Cashier.setIcon(new ImageIcon(getClass().getResource("/Icons/ico_caixa.png")));
+        Jfm_Report.setIcon(new ImageIcon(getClass().getResource("/Icons/ico_rel.png")));
+        Jfm_Exit.setIcon(new ImageIcon(getClass().getResource("/Icons/ico_sair.png")));
         
         // Bar Icon from operational system
-        ImageIcon icon = new ImageIcon("img/ico_cardapio.png");
+        ImageIcon icon = new ImageIcon(getClass().getResource("/Icons/ico_cardapio.png"));
         setIconImage(icon.getImage());      
     }
 
