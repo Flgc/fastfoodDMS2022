@@ -18,8 +18,7 @@ CREATE TABLE `tb_client` (
 CREATE TABLE `tb_employee` (
   `cod_emp` int NOT NULL AUTO_INCREMENT,
   `name_emp` varchar(80) NOT NULL,
-  `occupation_emp` varchar(80) NOT NULL,
-  `permiss_emp` varchar(80) NOT NULL,
+  `occupation_emp` varchar(80) NOT NULL,  
   `date_cad_emp` date  NOT NULL,
   PRIMARY KEY (`cod_emp`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
