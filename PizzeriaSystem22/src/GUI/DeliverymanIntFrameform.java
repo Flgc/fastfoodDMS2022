@@ -5,8 +5,8 @@
  */
 package GUI;
 
-import Beans.EmployeeBeans;
-import Controller.EmployeeController;
+import Beans.DeliverymanBeans;
+import Controller.DeliverymanController;
 import java.text.SimpleDateFormat;
 import javax.swing.text.MaskFormatter;
 import java.util.Date;
@@ -16,7 +16,7 @@ import javax.swing.table.DefaultTableModel;
  *
  * @author fabio
  */
-public class EmployeeIntFrameform extends javax.swing.JInternalFrame {
+public class DeliverymanIntFrameform extends javax.swing.JInternalFrame {
 
     /**
      * Creates new form ClientIntFrameform
@@ -25,22 +25,22 @@ public class EmployeeIntFrameform extends javax.swing.JInternalFrame {
     MaskFormatter TelFormat;
     SimpleDateFormat dateFormat;
     Date ActualDate;
-    EmployeeBeans EmployeeB; 
-    EmployeeController EmployeeC;
+    DeliverymanBeans DeliverymanB; 
+    DeliverymanController DeliverymanC;
     DefaultTableModel Model;
     
     
-    public EmployeeIntFrameform() {
+    public DeliverymanIntFrameform() {
         initComponents();
-        txt_codEmp.setEnabled(false);  
-        txt_dateEmp.setEnabled(false);
+        txt_codDel.setEnabled(false);  
+        txt_dateDel.setEnabled(false);
         fieldsEnable(false);
         dateFormat = new SimpleDateFormat("dd/MM/yyyy");
 
-        EmployeeB = new EmployeeBeans();
-        EmployeeC = new EmployeeController();
+        DeliverymanB = new DeliverymanBeans();
+        DeliverymanC = new DeliverymanController();
         
-        Model = (DefaultTableModel) Tab_Emp.getModel();
+        Model = (DefaultTableModel) Tab_Del.getModel();
     }
 
     /**
@@ -55,23 +55,21 @@ public class EmployeeIntFrameform extends javax.swing.JInternalFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
         jLabel1 = new javax.swing.JLabel();
-        txt_codEmp = new javax.swing.JTextField();
+        txt_codDel = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
-        txt_nameEmp = new javax.swing.JTextField();
-        jLabel3 = new javax.swing.JLabel();
+        txt_nameDel = new javax.swing.JTextField();
         jLabel9 = new javax.swing.JLabel();
-        txt_dateEmp = new javax.swing.JTextField();
+        txt_dateDel = new javax.swing.JTextField();
         jSeparator2 = new javax.swing.JSeparator();
         jLabel10 = new javax.swing.JLabel();
         txt_Search = new javax.swing.JTextField();
         jSeparator3 = new javax.swing.JSeparator();
         jScrollPane2 = new javax.swing.JScrollPane();
-        Tab_Emp = new javax.swing.JTable();
+        Tab_Del = new javax.swing.JTable();
         jSeparator4 = new javax.swing.JSeparator();
         btn_Insert = new javax.swing.JButton();
         btn_New = new javax.swing.JButton();
         btn_Edit = new javax.swing.JButton();
-        cmb_occupationEmp = new javax.swing.JComboBox<>();
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -88,27 +86,24 @@ public class EmployeeIntFrameform extends javax.swing.JInternalFrame {
 
         setClosable(true);
         setIconifiable(true);
-        setTitle("Cadastro do Empregado");
+        setTitle("Cadastro do Entregador");
 
         jLabel1.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         jLabel1.setText("Código");
 
-        txt_codEmp.setEditable(false);
-        txt_codEmp.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        txt_codDel.setEditable(false);
+        txt_codDel.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
 
         jLabel2.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         jLabel2.setText("Nome");
 
-        txt_nameEmp.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
-
-        jLabel3.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
-        jLabel3.setText("Cargo");
+        txt_nameDel.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
 
         jLabel9.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         jLabel9.setText("Data de Cadastro");
 
-        txt_dateEmp.setEditable(false);
-        txt_dateEmp.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        txt_dateDel.setEditable(false);
+        txt_dateDel.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
 
         jLabel10.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         jLabel10.setText("Buscar");
@@ -120,31 +115,31 @@ public class EmployeeIntFrameform extends javax.swing.JInternalFrame {
             }
         });
 
-        Tab_Emp.setModel(new javax.swing.table.DefaultTableModel(
+        Tab_Del.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
             new String [] {
-                "Código", "Nome", "Cargo", "Cadastro"
+                "Código", "Nome", "Cadastro"
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                false, false, false, false
+                false, false, false
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
                 return canEdit [columnIndex];
             }
         });
-        Tab_Emp.addMouseListener(new java.awt.event.MouseAdapter() {
+        Tab_Del.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                Tab_EmpMouseClicked(evt);
+                Tab_DelMouseClicked(evt);
             }
             public void mousePressed(java.awt.event.MouseEvent evt) {
-                Tab_EmpMousePressed(evt);
+                Tab_DelMousePressed(evt);
             }
         });
-        jScrollPane2.setViewportView(Tab_Emp);
+        jScrollPane2.setViewportView(Tab_Del);
 
         btn_Insert.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/salvar.png"))); // NOI18N
         btn_Insert.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -176,8 +171,6 @@ public class EmployeeIntFrameform extends javax.swing.JInternalFrame {
             }
         });
 
-        cmb_occupationEmp.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Selecione um Cargo", "Atendente", "Caixa", "Gerente", "Administrador" }));
-
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -194,7 +187,7 @@ public class EmployeeIntFrameform extends javax.swing.JInternalFrame {
                                 .addGap(19, 19, 19)
                                 .addComponent(jLabel1)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(txt_codEmp, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(txt_codDel, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(layout.createSequentialGroup()
                                 .addGap(49, 49, 49)
                                 .addComponent(jLabel10)
@@ -211,17 +204,11 @@ public class EmployeeIntFrameform extends javax.swing.JInternalFrame {
                                 .addGap(25, 25, 25)
                                 .addComponent(jLabel2)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(txt_nameEmp, javax.swing.GroupLayout.DEFAULT_SIZE, 419, Short.MAX_VALUE)))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(jLabel9)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(txt_dateEmp, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(jLabel3)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(cmb_occupationEmp, javax.swing.GroupLayout.PREFERRED_SIZE, 159, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                                .addComponent(txt_nameDel, javax.swing.GroupLayout.DEFAULT_SIZE, 419, Short.MAX_VALUE)))
+                        .addGap(20, 20, 20)
+                        .addComponent(jLabel9)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(txt_dateDel, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -231,17 +218,14 @@ public class EmployeeIntFrameform extends javax.swing.JInternalFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(jLabel9)
-                        .addComponent(txt_dateEmp, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(txt_dateDel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(jLabel1)
-                        .addComponent(txt_codEmp, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(txt_codDel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel3)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(jLabel2)
-                        .addComponent(txt_nameEmp, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(cmb_occupationEmp, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel2)
+                    .addComponent(txt_nameDel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 11, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -259,61 +243,58 @@ public class EmployeeIntFrameform extends javax.swing.JInternalFrame {
                     .addComponent(btn_Insert, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btn_New, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btn_Edit, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(50, Short.MAX_VALUE))
+                .addContainerGap(54, Short.MAX_VALUE))
         );
 
-        setBounds(200, 50, 735, 465);
+        setBounds(350, 70, 735, 465);
     }// </editor-fold>//GEN-END:initComponents
 
     private void btn_InsertActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_InsertActionPerformed
         popularEmployeeBeans();
-        EmployeeC.checkData(EmployeeB);
+        DeliverymanC.checkData(DeliverymanB);
         clearField();
     }//GEN-LAST:event_btn_InsertActionPerformed
 
     private void btn_NewActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_NewActionPerformed
         ActualDate = new Date(); 
-        txt_dateEmp.setText(dateFormat.format(ActualDate));        
+        txt_dateDel.setText(dateFormat.format(ActualDate));        
         fieldsEnable(true);
-        EmployeeC.CodControll();  
-        txt_codEmp.setText(EmployeeC.CodControll());
+        DeliverymanC.CodControll();  
+        txt_codDel.setText(DeliverymanC.CodControll());
     }//GEN-LAST:event_btn_NewActionPerformed
 
     private void txt_SearchKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txt_SearchKeyReleased
         Model.setNumRows(0);
-        EmployeeC.findControll(txt_Search.getText(), Model);
+        DeliverymanC.findControll(txt_Search.getText(), Model);
     }//GEN-LAST:event_txt_SearchKeyReleased
 
-    private void Tab_EmpMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Tab_EmpMouseClicked
-    }//GEN-LAST:event_Tab_EmpMouseClicked
+    private void Tab_DelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Tab_DelMouseClicked
+    }//GEN-LAST:event_Tab_DelMouseClicked
 
-    private void Tab_EmpMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Tab_EmpMousePressed
+    private void Tab_DelMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Tab_DelMousePressed
         fieldsEnable(true);
-        EmployeeB = EmployeeC.fillFielsControll(Integer.parseInt(Model.getValueAt(Tab_Emp.getSelectedRow(), 0).toString()));
-        txt_codEmp.setText(EmployeeB.getCodEmp() + "");
-        txt_nameEmp.setText(EmployeeB.getNameEmp());        
-        txt_dateEmp.setText(EmployeeB.getDateCadEmp());
-        cmb_occupationEmp.setSelectedItem(EmployeeB.getOccupationEmp());
-    }//GEN-LAST:event_Tab_EmpMousePressed
+        DeliverymanB = DeliverymanC.fillFielsControll(Integer.parseInt(Model.getValueAt(Tab_Del.getSelectedRow(), 0).toString()));
+        txt_codDel.setText(DeliverymanB.getCodDel() + "");
+        txt_nameDel.setText(DeliverymanB.getNameDel());        
+        txt_dateDel.setText(DeliverymanB.getDateCadDel());
+    }//GEN-LAST:event_Tab_DelMousePressed
 
     private void btn_EditActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_EditActionPerformed
         popularEmployeeBeans();
-        EmployeeC.checkDataEdit(EmployeeB);
+        DeliverymanC.checkDataEdit(DeliverymanB);
         clearField();      
         txt_Search.setText("");
         fieldsEnable(false);        
     }//GEN-LAST:event_btn_EditActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JTable Tab_Emp;
+    private javax.swing.JTable Tab_Del;
     private javax.swing.JButton btn_Edit;
     private javax.swing.JButton btn_Insert;
     private javax.swing.JButton btn_New;
-    private javax.swing.JComboBox<String> cmb_occupationEmp;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
@@ -322,28 +303,25 @@ public class EmployeeIntFrameform extends javax.swing.JInternalFrame {
     private javax.swing.JSeparator jSeparator4;
     private javax.swing.JTable jTable1;
     private javax.swing.JTextField txt_Search;
-    private javax.swing.JTextField txt_codEmp;
-    private javax.swing.JTextField txt_dateEmp;
-    private javax.swing.JTextField txt_nameEmp;
+    private javax.swing.JTextField txt_codDel;
+    private javax.swing.JTextField txt_dateDel;
+    private javax.swing.JTextField txt_nameDel;
     // End of variables declaration//GEN-END:variables
 
 
     final void fieldsEnable(boolean value) {
-        txt_nameEmp.setEnabled(value);
-        txt_dateEmp.setEnabled(value);
-        cmb_occupationEmp.setEnabled(value);
+        txt_nameDel.setEnabled(value);
+        txt_dateDel.setEnabled(value);
     }
     
     final void popularEmployeeBeans() {
-        EmployeeB.setNameEmp(txt_nameEmp.getText());
-        EmployeeB.setOccupationEmp(cmb_occupationEmp.getSelectedItem().toString());
-        EmployeeB.setDateCadEmp(txt_dateEmp.getText());
+        DeliverymanB.setNameDel(txt_nameDel.getText());
+        DeliverymanB.setDateCadDel(txt_dateDel.getText());
     }    
     
     final void clearField(){
-        txt_codEmp.setText("");
-        txt_nameEmp.setText("");
-        cmb_occupationEmp.setSelectedIndex(0);
-        txt_dateEmp.setText("");
+        txt_codDel.setText("");
+        txt_nameDel.setText("");
+        txt_dateDel.setText("");
     }
 }

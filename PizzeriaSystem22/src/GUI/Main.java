@@ -19,6 +19,7 @@ public class Main extends javax.swing.JFrame {
     ScreenBackground scrt;
     ClientIntFrameform clientIntFrameform;
     EmployeeIntFrameform employeeIntFrameform;
+    DeliverymanIntFrameform deliverymanIntFrameform;    
     
     public Main() {
         initComponents();
@@ -151,7 +152,9 @@ public class Main extends javax.swing.JFrame {
     }//GEN-LAST:event_Jfm_RegistrationMenuClientActionPerformed
 
     private void Jfm_RegistrationMenuDeliverymanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Jfm_RegistrationMenuDeliverymanActionPerformed
-        // TODO add your handling code here:
+        deliverymanIntFrameform = new DeliverymanIntFrameform();
+        scrt.add(deliverymanIntFrameform);
+        deliverymanIntFrameform.setVisible(true);
     }//GEN-LAST:event_Jfm_RegistrationMenuDeliverymanActionPerformed
 
     private void Jfm_RegistrationMenuEmployeeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Jfm_RegistrationMenuEmployeeActionPerformed
