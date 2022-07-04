@@ -3,14 +3,11 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/mnt/70AEE1DFAEE19DBA/REDE/NetBeansProjects/sistemaPizzaria062022/PizzeriaSystem22/src/Controller/ClientController.java</file>
-            <file>file:/mnt/70AEE1DFAEE19DBA/REDE/NetBeansProjects/sistemaPizzaria062022/PizzeriaSystem22/src/Utility/Brokers.java</file>
-            <file>file:/mnt/70AEE1DFAEE19DBA/REDE/NetBeansProjects/sistemaPizzaria062022/PizzeriaSystem22/src/DAO/ClientDAO.java</file>
-            <file>file:/mnt/70AEE1DFAEE19DBA/REDE/NetBeansProjects/sistemaPizzaria062022/PizzeriaSystem22/src/GUI/ClientIntFrameform.java</file>
-            <file>file:/mnt/70AEE1DFAEE19DBA/REDE/NetBeansProjects/sistemaPizzaria062022/PizzeriaSystem22/src/Utility/DbConnection.java</file>
-            <file>file:/mnt/70AEE1DFAEE19DBA/REDE/NetBeansProjects/sistemaPizzaria062022/PizzeriaSystem22/src/Beans/ClientBeans.java</file>
+            <file>file:/mnt/70AEE1DFAEE19DBA/REDE/NetBeansProjects/sistemaPizzaria062022/PizzeriaSystem22/src/GUI/EmployeeIntFrameform.java</file>
             <file>file:/mnt/70AEE1DFAEE19DBA/REDE/NetBeansProjects/sistemaPizzaria062022/PizzeriaSystem22/src/GUI/Main.java</file>
-            <file>file:/mnt/70AEE1DFAEE19DBA/REDE/NetBeansProjects/sistemaPizzaria062022/PizzeriaSystem22/src/Utility/ScreenBackground.java</file>
+            <file>file:/mnt/70AEE1DFAEE19DBA/REDE/NetBeansProjects/sistemaPizzaria062022/PizzeriaSystem22/src/DAO/EmployeeDAO.java</file>
+            <file>file:/mnt/70AEE1DFAEE19DBA/REDE/NetBeansProjects/sistemaPizzaria062022/PizzeriaSystem22/src/Controller/EmployeeController.java</file>
+            <file>file:/mnt/70AEE1DFAEE19DBA/REDE/NetBeansProjects/sistemaPizzaria062022/PizzeriaSystem22/src/Beans/EmployeeBeans.java</file>
         </group>
     </open-files>
 </project-private>

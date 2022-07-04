@@ -125,11 +125,11 @@ public class EmployeeIntFrameform extends javax.swing.JInternalFrame {
 
             },
             new String [] {
-                "Código", "Nome", "Cargo"
+                "Código", "Nome", "Cargo", "Cadastro"
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                false, false, false
+                false, false, false, false
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
@@ -236,11 +236,12 @@ public class EmployeeIntFrameform extends javax.swing.JInternalFrame {
                         .addComponent(jLabel1)
                         .addComponent(txt_codEmp, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel2)
-                    .addComponent(txt_nameEmp, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(cmb_occupationEmp, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel3))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel3)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jLabel2)
+                        .addComponent(txt_nameEmp, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(cmb_occupationEmp, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 11, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -261,7 +262,7 @@ public class EmployeeIntFrameform extends javax.swing.JInternalFrame {
                 .addContainerGap(50, Short.MAX_VALUE))
         );
 
-        setBounds(0, 0, 735, 465);
+        setBounds(200, 50, 735, 465);
     }// </editor-fold>//GEN-END:initComponents
 
     private void btn_InsertActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_InsertActionPerformed
@@ -288,10 +289,11 @@ public class EmployeeIntFrameform extends javax.swing.JInternalFrame {
 
     private void Tab_EmpMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Tab_EmpMousePressed
         fieldsEnable(true);
-//        EmployeeB = ClientC.fillFielsControll(Integer.parseInt(Model.getValueAt(Tab_Emp.getSelectedRow(), 0).toString()));
-//        txt_codEmp.setText(EmployeeB.getCodCli() + "");
-//        txt_nameEmp.setText(EmployeeB.getNameCli());        
-//        txt_dateEmp.setText(EmployeeB.getDateCli());
+        EmployeeB = EmployeeC.fillFielsControll(Integer.parseInt(Model.getValueAt(Tab_Emp.getSelectedRow(), 0).toString()));
+        txt_codEmp.setText(EmployeeB.getCodEmp() + "");
+        txt_nameEmp.setText(EmployeeB.getNameEmp());        
+        txt_dateEmp.setText(EmployeeB.getDateCadEmp());
+        cmb_occupationEmp.setSelectedItem(EmployeeB.getOccupationEmp());
     }//GEN-LAST:event_Tab_EmpMousePressed
 
     private void btn_EditActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_EditActionPerformed
@@ -301,7 +303,6 @@ public class EmployeeIntFrameform extends javax.swing.JInternalFrame {
         txt_Search.setText("");
         fieldsEnable(false);        
     }//GEN-LAST:event_btn_EditActionPerformed
-
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTable Tab_Emp;

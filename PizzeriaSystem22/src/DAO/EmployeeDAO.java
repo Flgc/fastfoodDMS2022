@@ -65,7 +65,7 @@ public class EmployeeDAO {
         ResultSet rs = st.executeQuery();
         while(rs.next()){
             mModel.addRow(new Object[] {rs.getString("cod_emp"), rs.getString("name_emp"), 
-                rs.getString("occupation_emp")});
+                rs.getString("occupation_emp"), Brokers.DateConverterUsToBr(rs.getString("date_cad_emp"))});
         }
         } catch (SQLException ex) {
             JOptionPane.showMessageDialog(null, "Erro ao Buscar Empregado", "Error", 0, new ImageIcon("img/btn_sair.png"));    
@@ -82,7 +82,7 @@ public class EmployeeDAO {
         if(rs.next()){
             Employee.setCodEmp(rs.getInt("cod_emp"));
             Employee.setNameEmp(rs.getString("name_emp"));
-            //Employee.setOccupationEmp(rs.getString("adress_cli"));
+            Employee.setOccupationEmp(rs.getString("occupation_emp"));
             Employee.setDateCadEmp(Brokers.DateConverterUsToBr(rs.getString("date_cad_emp")));
         }
         } catch (SQLException ex) {
@@ -94,11 +94,11 @@ public class EmployeeDAO {
     
     public void employeeEdit(EmployeeBeans Employee){
         try {
-            String SQLInsertion = "update tb_employee set name_cli = ?, adress_cli = ?, district_cli =  ?, state_cli = ?,"
-                    + " phone_cli = ?, email_cli = ?, zip_cli = ? where cod_cli  = ?";
+            String SQLInsertion = "update tb_employee set name_emp = ?, occupation_emp = ? where cod_emp  = ?";
             PreparedStatement st = DbConnection.getConnection().prepareStatement( SQLInsertion);
             st.setString(1, Employee.getNameEmp());
             st.setString(2, Employee.getOccupationEmp());
+            st.setInt(3, Employee.getCodEmp());
             
             st.execute();
             DbConnection.getConnection().commit();
