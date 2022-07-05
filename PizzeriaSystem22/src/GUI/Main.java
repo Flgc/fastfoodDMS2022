@@ -20,6 +20,7 @@ public class Main extends javax.swing.JFrame {
     ClientIntFrameform clientIntFrameform;
     EmployeeIntFrameform employeeIntFrameform;
     DeliverymanIntFrameform deliverymanIntFrameform;    
+    MenuIntFrameform menuIntFrameform;    
     
     public Main() {
         initComponents();
@@ -142,7 +143,9 @@ public class Main extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void Jfm_RegistrationMenuMenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Jfm_RegistrationMenuMenuActionPerformed
-        // TODO add your handling code here:
+        menuIntFrameform = new MenuIntFrameform();
+        scrt.add(menuIntFrameform);
+        menuIntFrameform.setVisible(true);
     }//GEN-LAST:event_Jfm_RegistrationMenuMenuActionPerformed
 
     private void Jfm_RegistrationMenuClientActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Jfm_RegistrationMenuClientActionPerformed
