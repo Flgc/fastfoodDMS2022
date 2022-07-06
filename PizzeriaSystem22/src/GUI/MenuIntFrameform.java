@@ -74,10 +74,6 @@ public class MenuIntFrameform extends javax.swing.JInternalFrame {
         cmb_typeMen = new javax.swing.JComboBox<>();
         jLabel4 = new javax.swing.JLabel();
         txt_priceMen = new javax.swing.JTextField();
-        jLabel5 = new javax.swing.JLabel();
-        txt_priceMen1 = new javax.swing.JTextField();
-        jLabel6 = new javax.swing.JLabel();
-        txt_priceMen2 = new javax.swing.JTextField();
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -131,11 +127,11 @@ public class MenuIntFrameform extends javax.swing.JInternalFrame {
 
             },
             new String [] {
-                "Código", "Descrição", "Tipo", "Cadastro"
+                "Código", "Descrição", "Tipo", "Preço", "Cadastro"
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                false, false, false, false
+                false, false, false, false, false
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
@@ -185,22 +181,9 @@ public class MenuIntFrameform extends javax.swing.JInternalFrame {
         cmb_typeMen.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Selecione um Item", "Pizza", "Refrigerante", "Suco", "Cerveja" }));
 
         jLabel4.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
-        jLabel4.setText("Valor");
+        jLabel4.setText("Preço");
 
-        txt_priceMen.setEditable(false);
         txt_priceMen.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
-
-        jLabel5.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
-        jLabel5.setText("Valor");
-
-        txt_priceMen1.setEditable(false);
-        txt_priceMen1.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
-
-        jLabel6.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
-        jLabel6.setText("Valor");
-
-        txt_priceMen2.setEditable(false);
-        txt_priceMen2.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -215,7 +198,7 @@ public class MenuIntFrameform extends javax.swing.JInternalFrame {
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
-                                .addGap(31, 31, 31)
+                                .addGap(54, 54, 54)
                                 .addComponent(jLabel1)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(txt_codMen, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -233,39 +216,29 @@ public class MenuIntFrameform extends javax.swing.JInternalFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addGap(51, 51, 51)
                         .addComponent(jLabel10)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(txt_Search, javax.swing.GroupLayout.PREFERRED_SIZE, 267, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(0, 0, Short.MAX_VALUE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(jLabel2)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(43, 43, 43)
+                                .addComponent(jLabel4))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(0, 0, Short.MAX_VALUE)
+                                .addComponent(jLabel2)))
                         .addGap(8, 8, 8)
-                        .addComponent(txt_nameMen, javax.swing.GroupLayout.PREFERRED_SIZE, 405, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jLabel3)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(cmb_typeMen, javax.swing.GroupLayout.PREFERRED_SIZE, 159, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(txt_nameMen, javax.swing.GroupLayout.PREFERRED_SIZE, 405, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(jLabel3)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(cmb_typeMen, javax.swing.GroupLayout.PREFERRED_SIZE, 159, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(txt_priceMen, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(0, 0, Short.MAX_VALUE)))))
                 .addContainerGap())
-            .addGroup(layout.createSequentialGroup()
-                .addGap(32, 32, 32)
-                .addComponent(jLabel4)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(txt_priceMen, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(layout.createSequentialGroup()
-                    .addGap(42, 42, 42)
-                    .addComponent(jLabel5)
-                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                    .addComponent(txt_priceMen1, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(519, Short.MAX_VALUE)))
-            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(layout.createSequentialGroup()
-                    .addGap(52, 52, 52)
-                    .addComponent(jLabel6)
-                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                    .addComponent(txt_priceMen2, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(509, Short.MAX_VALUE)))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -290,11 +263,11 @@ public class MenuIntFrameform extends javax.swing.JInternalFrame {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(txt_nameMen, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel2))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 8, Short.MAX_VALUE)))
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel4)
                     .addComponent(txt_priceMen, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 11, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -311,21 +284,7 @@ public class MenuIntFrameform extends javax.swing.JInternalFrame {
                     .addComponent(btn_Insert, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btn_New, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btn_Edit, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(55, Short.MAX_VALUE))
-            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(layout.createSequentialGroup()
-                    .addGap(84, 84, 84)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(jLabel5)
-                        .addComponent(txt_priceMen1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addContainerGap(356, Short.MAX_VALUE)))
-            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(layout.createSequentialGroup()
-                    .addGap(94, 94, 94)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(jLabel6)
-                        .addComponent(txt_priceMen2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addContainerGap(346, Short.MAX_VALUE)))
+                .addContainerGap(59, Short.MAX_VALUE))
         );
 
         setBounds(480, 80, 735, 489);
@@ -334,7 +293,8 @@ public class MenuIntFrameform extends javax.swing.JInternalFrame {
     private void btn_InsertActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_InsertActionPerformed
         popularMenuBeans();
         MenuC.checkData(MenuB);
-        clearField();
+        txt_Search.setText("");
+        fieldsEnable(false);
     }//GEN-LAST:event_btn_InsertActionPerformed
 
     private void btn_NewActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_NewActionPerformed
@@ -343,6 +303,9 @@ public class MenuIntFrameform extends javax.swing.JInternalFrame {
         fieldsEnable(true);
         MenuC.CodControll();  
         txt_codMen.setText(MenuC.CodControll());
+        txt_priceMen.setText("0");
+        txt_nameMen.setText("");
+        cmb_typeMen.setSelectedIndex(0);
     }//GEN-LAST:event_btn_NewActionPerformed
 
     private void txt_SearchKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txt_SearchKeyReleased
@@ -359,6 +322,7 @@ public class MenuIntFrameform extends javax.swing.JInternalFrame {
         txt_codMen.setText(MenuB.getCodMen()+ "");
         txt_nameMen.setText(MenuB.getDescriptionMen());        
         txt_dateMen.setText(MenuB.getDateCadMen());
+        txt_priceMen.setText(MenuB.getPriceMen()+" ");
         cmb_typeMen.setSelectedItem(MenuB.getTypeMen());
     }//GEN-LAST:event_Tab_MenMousePressed
 
@@ -381,8 +345,6 @@ public class MenuIntFrameform extends javax.swing.JInternalFrame {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
@@ -395,8 +357,6 @@ public class MenuIntFrameform extends javax.swing.JInternalFrame {
     private javax.swing.JTextField txt_dateMen;
     private javax.swing.JTextField txt_nameMen;
     private javax.swing.JTextField txt_priceMen;
-    private javax.swing.JTextField txt_priceMen1;
-    private javax.swing.JTextField txt_priceMen2;
     // End of variables declaration//GEN-END:variables
 
 
@@ -404,14 +364,14 @@ public class MenuIntFrameform extends javax.swing.JInternalFrame {
         txt_nameMen.setEnabled(value);
         txt_dateMen.setEnabled(value);
         cmb_typeMen.setEnabled(value);
-        txt_priceMen.setEditable(value);
+        txt_priceMen.setEnabled(value);
     }
     
     final void popularMenuBeans() {
         MenuB.setDescriptionMen(txt_nameMen.getText());
         MenuB.setTypeMen(cmb_typeMen.getSelectedItem().toString());
         MenuB.setDateCadMen(txt_dateMen.getText());
-        MenuB.setPriceMen(txt_priceMen.getText());
+        MenuB.setPriceMen(Double.parseDouble(txt_priceMen.getText()));
     }    
     
     final void clearField(){

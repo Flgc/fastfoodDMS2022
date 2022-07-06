@@ -36,7 +36,7 @@ public class MenuController {
             return false;
         }
         
-        if(Menu.getPriceMen().equals(0)){
+        if(Menu.getPriceMen() == 0){
             JOptionPane.showMessageDialog(null, "Preencha o campo Preço", "Error", 0, 
                     new ImageIcon("img/dberro.png"));  
             return false;
@@ -72,8 +72,8 @@ public class MenuController {
             return false;
         }
         
-        if(Menu.getPriceMen().equals(0)){
-            JOptionPane.showMessageDialog(null, "Preencha o campo Valor", "Error", 0,
+        if(Menu.getPriceMen() == 0){
+            JOptionPane.showMessageDialog(null, "Preencha o campo Preço", "Error", 0,
                     new ImageIcon("img/dberro.png"));  
             return false;
         }
