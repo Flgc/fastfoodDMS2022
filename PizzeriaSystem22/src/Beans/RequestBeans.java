@@ -9,55 +9,81 @@ package Beans;
  *
  * @author fabio
  */
-public class MenuBeans {
+public class RequestBeans {
     
-    private Integer codMen;
-    private String descriptionMen;
-    private String typeMen;
-    private Double priceMen;
-    private String dateCadMen;
+    private Integer codReq;
+    private Integer codCliReq;
+    private String dateCadReq;
+    private Double totalReq;
+    private Integer codEmpReq;
+    private Integer codDelReq;
+    private String statusReq;
+    private String timeCadReq;
     
-    public MenuBeans(){
+    public RequestBeans(){
     }
 
-    public Integer getCodMen() {
-        return codMen;
+    public Integer getCodReq() {
+        return codReq;
     }
 
-    public void setCodMen(Integer codMen) {
-        this.codMen = codMen;
+    public void setCodReq(Integer codReq) {
+        this.codReq = codReq;
     }
 
-    public String getDescriptionMen() {
-        return descriptionMen;
+    public Integer getCodCliReq() {
+        return codCliReq;
     }
 
-    public void setDescriptionMen(String descriptionMen) {
-        this.descriptionMen = descriptionMen;
+    public void setCodCliReq(Integer codCliReq) {
+        this.codCliReq = codCliReq;
     }
 
-    public String getTypeMen() {
-        return typeMen;
+    public String getDateCadReq() {
+        return dateCadReq;
     }
 
-    public void setTypeMen(String typeMen) {
-        this.typeMen = typeMen;
+    public void setDateCadReq(String dateCadReq) {
+        this.dateCadReq = dateCadReq;
     }
 
-    public Double getPriceMen() {
-        return priceMen;
+    public Double getTotalReq() {
+        return totalReq;
     }
 
-    public void setPriceMen(Double priceMen) {
-        this.priceMen = priceMen;
+    public void setTotalReq(Double totalReq) {
+        this.totalReq = totalReq;
     }
 
-    public String getDateCadMen() {
-        return dateCadMen;
+    public Integer getCodEmpReq() {
+        return codEmpReq;
     }
 
-    public void setDateCadMen(String dateCadMen) {
-        this.dateCadMen = dateCadMen;
-    }   
-    
+    public void setCodEmpReq(Integer codEmpReq) {
+        this.codEmpReq = codEmpReq;
+    }
+
+    public Integer getCodDelReq() {
+        return codDelReq;
+    }
+
+    public void setCodDelReq(Integer codDelReq) {
+        this.codDelReq = codDelReq;
+    }
+
+    public String getStatusReq() {
+        return statusReq;
+    }
+
+    public void setStatusReq(String statusReq) {
+        this.statusReq = statusReq;
+    }
+
+    public String getTimeCadReq() {
+        return timeCadReq;
+    }
+
+    public void setTimeCadReq(String timeCadReq) {
+        this.timeCadReq = timeCadReq;
+    }
 }

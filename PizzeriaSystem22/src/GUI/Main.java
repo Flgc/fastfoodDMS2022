@@ -21,6 +21,8 @@ public class Main extends javax.swing.JFrame {
     EmployeeIntFrameform employeeIntFrameform;
     DeliverymanIntFrameform deliverymanIntFrameform;    
     MenuIntFrameform menuIntFrameform;    
+    RequestIntFrameform requestIntFrameform; 
+    
     
     public Main() {
         initComponents();
@@ -70,6 +72,11 @@ public class Main extends javax.swing.JFrame {
 
         Jfm_Registration.setText("Cadastro");
         Jfm_Registration.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        Jfm_Registration.addComponentListener(new java.awt.event.ComponentAdapter() {
+            public void componentResized(java.awt.event.ComponentEvent evt) {
+                Jfm_RegistrationComponentResized(evt);
+            }
+        });
 
         Jfm_RegistrationMenuClient.setText("Clientes");
         Jfm_RegistrationMenuClient.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -111,9 +118,19 @@ public class Main extends javax.swing.JFrame {
 
         Jfm_Cashier.setText("Caixa");
         Jfm_Cashier.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        Jfm_Cashier.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Jfm_CashierActionPerformed(evt);
+            }
+        });
 
         Jfm_CashierRequest.setText("Pedido");
         Jfm_CashierRequest.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        Jfm_CashierRequest.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Jfm_CashierRequestActionPerformed(evt);
+            }
+        });
         Jfm_Cashier.add(Jfm_CashierRequest);
 
         jMenuBar1.add(Jfm_Cashier);
@@ -165,6 +182,19 @@ public class Main extends javax.swing.JFrame {
         scrt.add(employeeIntFrameform);
         employeeIntFrameform.setVisible(true);
     }//GEN-LAST:event_Jfm_RegistrationMenuEmployeeActionPerformed
+
+    private void Jfm_CashierRequestActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Jfm_CashierRequestActionPerformed
+        requestIntFrameform = new RequestIntFrameform();
+        scrt.add(requestIntFrameform);
+        requestIntFrameform.setVisible(true);
+    }//GEN-LAST:event_Jfm_CashierRequestActionPerformed
+
+    private void Jfm_CashierActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Jfm_CashierActionPerformed
+    }//GEN-LAST:event_Jfm_CashierActionPerformed
+
+    private void Jfm_RegistrationComponentResized(java.awt.event.ComponentEvent evt) {//GEN-FIRST:event_Jfm_RegistrationComponentResized
+        // TODO add your handling code here:
+    }//GEN-LAST:event_Jfm_RegistrationComponentResized
 
     /**
      * @param args the command line arguments

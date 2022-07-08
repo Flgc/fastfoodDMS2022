@@ -40,7 +40,7 @@ CREATE TABLE `tb_menu` (
   `cod_men` int NOT NULL AUTO_INCREMENT,
   `description_men` varchar(80) NOT NULL,
   `type_men` varchar(80) NOT NULL,
-  `price_men` decimal(10,2) NOT NULL,
+  `p-rice_men` decimal(10,2) NOT NULL,
   `date_cad_men` date  NOT NULL,
   PRIMARY KEY (`cod_men`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
@@ -55,6 +55,7 @@ CREATE TABLE `tb_request` (
   `cod_emp_req` int NOT NULL,
   `cod_del_req` int NOT NULL,
   `status_req`  varchar(50) NOT NULL,
+  `time_cad_req` time  NOT NULL,
   PRIMARY KEY (`cod_req`,`cod_cli_req`,`cod_emp_req`,`cod_del_req`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
@@ -85,4 +86,13 @@ ALTER TABLE dbpizzerias.tb_item ADD CONSTRAINT FK_itemMenu 		   FOREIGN KEY (cod
 ALTER TABLE tb_request 
 ADD status_req varchar(50);
 
+ALTER TABLE tb_request 
+ADD time_cad_req time;
+
+
 select * from tb_client
+
+
+
+ALTER TABLE tb_request 
+ADD time_cad_req` time;

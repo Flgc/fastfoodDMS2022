@@ -293,7 +293,8 @@ public class MenuIntFrameform extends javax.swing.JInternalFrame {
     private void btn_InsertActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_InsertActionPerformed
         popularMenuBeans();
         MenuC.checkData(MenuB);
-        txt_Search.setText("");
+        txt_Search.setText("");        
+        cmb_typeMen.setSelectedIndex(0);
         fieldsEnable(false);
     }//GEN-LAST:event_btn_InsertActionPerformed
 
