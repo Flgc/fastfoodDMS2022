@@ -7,6 +7,7 @@ package Controller;
 
 import Beans.ClientBeans;
 import DAO.ClientDAO;
+import java.util.List;
 import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
@@ -70,6 +71,10 @@ public class ClientController {
     
     public void findControll(String sSearch, DefaultTableModel mModel){
         ClientD.clientFind(sSearch, mModel);
+    }
+    
+    public void findControll(String sSearch, List<String> sList){
+        ClientD.clientFind(sSearch, sList);
     }
     
     public ClientBeans fillFielsControll(int Cod){

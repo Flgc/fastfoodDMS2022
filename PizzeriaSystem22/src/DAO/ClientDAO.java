@@ -12,6 +12,7 @@ import java.sql.SQLException;
 import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 import Utility.Brokers;
+import java.util.List;
 import  java.sql.ResultSet;
 import javax.swing.table.DefaultTableModel;
 
@@ -77,6 +78,19 @@ public class ClientDAO {
             JOptionPane.showMessageDialog(null, "Erro ao Buscar Cliente", "Error", 0, new ImageIcon("img/btn_sair.png"));    
         }        
     }
+    
+    public void clientFind(String sSearch, List<String> sList){        
+        try {        
+        String SQLSelection = "select * from tb_client where name_cli like '%" + sSearch + "%' ";  
+        PreparedStatement st = DbConnection.getConnection().prepareStatement( SQLSelection);
+        ResultSet rs = st.executeQuery();
+        while(rs.next()){
+            sList.add(rs.getString("cod_cli") + " - " + rs.getString("name_cli"));
+        }
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, "Erro ao Buscar Cliente", "Error", 0, new ImageIcon("img/btn_sair.png"));    
+        }        
+    }    
     
     public ClientBeans fillFiels(int Cod){
         ClientBeans Client = new ClientBeans();        

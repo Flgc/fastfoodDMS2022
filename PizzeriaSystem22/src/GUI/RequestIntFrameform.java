@@ -5,6 +5,10 @@
  */
 package GUI;
 
+import Beans.ClientBeans;
+import Controller.ClientController;
+import java.util.ArrayList;
+import java.util.List;
 import javax.swing.text.MaskFormatter;
 import javax.swing.JFormattedTextField;
 import javax.swing.JOptionPane;
@@ -14,12 +18,22 @@ import javax.swing.JOptionPane;
  * @author fabio
  */
 public class RequestIntFrameform extends javax.swing.JInternalFrame {
+    
+    ClientBeans ClientB; 
+    ClientController ClientC;
+    List<String> sList;
 
     MaskFormatter TelFormat;
     
     public RequestIntFrameform() {
         initComponents();
         fieldsEnable(false);
+        
+        sList = new ArrayList<>();
+        ClientB = new ClientBeans();
+        ClientC = new ClientController();        
+        
+        panelRequest.setEnabledAt(1, false);
     }
 
     /**
@@ -31,10 +45,10 @@ public class RequestIntFrameform extends javax.swing.JInternalFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jTbPane1Father = new javax.swing.JTabbedPane();
+        panelRequest = new javax.swing.JTabbedPane();
         jPn_Clientes = new javax.swing.JPanel();
         btn_Search = new javax.swing.JButton();
-        cmb_Clientes = new javax.swing.JComboBox<>();
+        cmb_Clients = new javax.swing.JComboBox<>();
         jLabel1 = new javax.swing.JLabel();
         txt_codCli = new javax.swing.JTextField();
         jLabel9 = new javax.swing.JLabel();
@@ -84,9 +98,22 @@ public class RequestIntFrameform extends javax.swing.JInternalFrame {
         btn_finish = new javax.swing.JButton();
         btn_ClosedRequest = new javax.swing.JButton();
 
-        btn_Search.setText("Pesquisar");
+        setClosable(true);
+        setIconifiable(true);
+        setTitle("Pedido");
 
-        cmb_Clientes.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        btn_Search.setText("Pesquisar");
+        btn_Search.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_SearchActionPerformed(evt);
+            }
+        });
+
+        cmb_Clients.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cmb_ClientsActionPerformed(evt);
+            }
+        });
 
         jLabel1.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         jLabel1.setText("Código");
@@ -143,6 +170,11 @@ public class RequestIntFrameform extends javax.swing.JInternalFrame {
         });
 
         btn_Request.setText("Pedido");
+        btn_Request.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_RequestActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPn_ClientesLayout = new javax.swing.GroupLayout(jPn_Clientes);
         jPn_Clientes.setLayout(jPn_ClientesLayout);
@@ -200,7 +232,7 @@ public class RequestIntFrameform extends javax.swing.JInternalFrame {
                             .addGroup(jPn_ClientesLayout.createSequentialGroup()
                                 .addComponent(btn_Search)
                                 .addGap(27, 27, 27)
-                                .addComponent(cmb_Clientes, javax.swing.GroupLayout.PREFERRED_SIZE, 741, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addComponent(cmb_Clients, javax.swing.GroupLayout.PREFERRED_SIZE, 741, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPn_ClientesLayout.createSequentialGroup()
@@ -215,8 +247,8 @@ public class RequestIntFrameform extends javax.swing.JInternalFrame {
                 .addContainerGap()
                 .addGroup(jPn_ClientesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btn_Search)
-                    .addComponent(cmb_Clientes, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(38, 38, 38)
+                    .addComponent(cmb_Clients, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(80, 80, 80)
                 .addGroup(jPn_ClientesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPn_ClientesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(jLabel9)
@@ -246,14 +278,14 @@ public class RequestIntFrameform extends javax.swing.JInternalFrame {
                     .addComponent(txt_phoneCli, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel7)
                     .addComponent(txt_emailCli, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 228, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 186, Short.MAX_VALUE)
                 .addGroup(jPn_ClientesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btn_Closed)
                     .addComponent(btn_Request))
                 .addContainerGap())
         );
 
-        jTbPane1Father.addTab("Clientes", jPn_Clientes);
+        panelRequest.addTab("Clientes", jPn_Clientes);
 
         jtf_txt_NameClient.setHorizontalAlignment(javax.swing.JTextField.CENTER);
 
@@ -261,7 +293,7 @@ public class RequestIntFrameform extends javax.swing.JInternalFrame {
 
         jLabel11.setText("Selecionar");
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jComboBox1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
 
         jLabel12.setText("Preço");
 
@@ -404,7 +436,7 @@ public class RequestIntFrameform extends javax.swing.JInternalFrame {
                 .addContainerGap())
         );
 
-        jTbPane1Father.addTab("Pedido", jPn_Pedido);
+        panelRequest.addTab("Pedido", jPn_Pedido);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -412,20 +444,40 @@ public class RequestIntFrameform extends javax.swing.JInternalFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jTbPane1Father)
+                .addComponent(panelRequest)
                 .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jTbPane1Father)
+            .addComponent(panelRequest)
         );
 
-        pack();
+        setBounds(200, 50, 959, 543);
     }// </editor-fold>//GEN-END:initComponents
 
     private void btn_ClosedActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_ClosedActionPerformed
         dispose();
     }//GEN-LAST:event_btn_ClosedActionPerformed
+
+    private void cmb_ClientsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmb_ClientsActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_cmb_ClientsActionPerformed
+
+    private void btn_SearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_SearchActionPerformed
+        cmb_Clients.removeAllItems();
+        sList.clear();
+        String SearchBtn = JOptionPane.showInputDialog(null, "Digite o Nome do Cliente", "Pesquisar", 3);
+        ClientC.findControll(SearchBtn, sList);
+        for(String i:sList){
+            cmb_Clients.addItem(i);
+        }
+    }//GEN-LAST:event_btn_SearchActionPerformed
+
+    private void btn_RequestActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_RequestActionPerformed
+        panelRequest.setEnabledAt(0,false);
+        panelRequest.setEnabledAt(1, true);
+        panelRequest.setSelectedIndex(1);
+    }//GEN-LAST:event_btn_RequestActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -438,7 +490,7 @@ public class RequestIntFrameform extends javax.swing.JInternalFrame {
     private javax.swing.JButton btn_calc;
     private javax.swing.JButton btn_finish;
     private javax.swing.JButton btn_subt;
-    private javax.swing.JComboBox<String> cmb_Clientes;
+    private javax.swing.JComboBox<String> cmb_Clients;
     private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
@@ -459,9 +511,9 @@ public class RequestIntFrameform extends javax.swing.JInternalFrame {
     private javax.swing.JPanel jPn_Pedido;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JSeparator jSeparator2;
-    private javax.swing.JTabbedPane jTbPane1Father;
     private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jtf_txt_NameClient;
+    private javax.swing.JTabbedPane panelRequest;
     private javax.swing.JTable requestTable;
     private javax.swing.JTextField txt_RequestCode;
     private javax.swing.JTextField txt_RequestPrice;
@@ -488,7 +540,5 @@ public class RequestIntFrameform extends javax.swing.JInternalFrame {
         txt_phoneCli.setEnabled(value);
         txt_stateCli.setEnabled(value);
         txt_zipCli.setEnabled(value);    
-    }
-    
-
+    }  
 }
