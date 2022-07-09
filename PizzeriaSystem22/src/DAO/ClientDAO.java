@@ -85,7 +85,7 @@ public class ClientDAO {
         PreparedStatement st = DbConnection.getConnection().prepareStatement( SQLSelection);
         ResultSet rs = st.executeQuery();
         while(rs.next()){
-            sList.add(rs.getString("cod_cli") + " - " + rs.getString("name_cli"));
+            sList.add(rs.getString("cod_cli") + " - " + rs.getString("name_cli")+ " -  Tel: " + rs.getString("phone_cli")+ " -  Endereço: " + rs.getString("adress_cli"));
         }
         } catch (SQLException ex) {
             JOptionPane.showMessageDialog(null, "Erro ao Buscar Cliente", "Error", 0, new ImageIcon("img/btn_sair.png"));    
