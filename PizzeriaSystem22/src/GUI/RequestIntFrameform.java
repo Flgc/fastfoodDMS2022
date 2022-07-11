@@ -6,7 +6,9 @@
 package GUI;
 
 import Beans.ClientBeans;
+import Beans.RequestBeans;
 import Controller.ClientController;
+import Controller.RequestController;
 import java.util.ArrayList;
 import java.util.List;
 import javax.swing.text.MaskFormatter;
@@ -20,8 +22,11 @@ import javax.swing.JOptionPane;
 public class RequestIntFrameform extends javax.swing.JInternalFrame {
     
     ClientBeans ClientB; 
+    RequestBeans RequestB;
     ClientController ClientC;
+    RequestController RequestC;
     List<String> sList;
+    List<String> ItemsList;
 
     MaskFormatter TelFormat;
     
@@ -30,8 +35,13 @@ public class RequestIntFrameform extends javax.swing.JInternalFrame {
         fieldsEnable(false);
         
         sList = new ArrayList<>();
+        ItemsList = new ArrayList<>();
+        
         ClientB = new ClientBeans();
-        ClientC = new ClientController();        
+        RequestB = new RequestBeans();
+        
+        ClientC = new ClientController();   
+        RequestC = new RequestController();
         
         panelRequest.setEnabledAt(1, false);
     }
@@ -77,9 +87,9 @@ public class RequestIntFrameform extends javax.swing.JInternalFrame {
         jPn_Pedido = new javax.swing.JPanel();
         jtf_txt_NameClient = new javax.swing.JTextField();
         jLabel10 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
+        txt_RequestItemSearch = new javax.swing.JTextField();
         jLabel11 = new javax.swing.JLabel();
-        jComboBox1 = new javax.swing.JComboBox<>();
+        cmb_Items = new javax.swing.JComboBox<>();
         jLabel12 = new javax.swing.JLabel();
         txt_RequestPrice = new javax.swing.JTextField();
         jLabel13 = new javax.swing.JLabel();
@@ -292,9 +302,16 @@ public class RequestIntFrameform extends javax.swing.JInternalFrame {
 
         jLabel10.setText("Item");
 
+        txt_RequestItemSearch.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txt_RequestItemSearchActionPerformed(evt);
+            }
+        });
+
         jLabel11.setText("Selecionar");
 
-        jComboBox1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        cmb_Items.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "<--  Pesquise um Item ao Lado" }));
+        cmb_Items.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
 
         jLabel12.setText("Preço");
 
@@ -361,11 +378,11 @@ public class RequestIntFrameform extends javax.swing.JInternalFrame {
                                 .addGap(17, 17, 17)
                                 .addComponent(jLabel10)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 367, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(txt_RequestItemSearch, javax.swing.GroupLayout.PREFERRED_SIZE, 367, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addComponent(jLabel11)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(jComboBox1, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                .addComponent(cmb_Items, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                             .addGroup(jPn_PedidoLayout.createSequentialGroup()
                                 .addGroup(jPn_PedidoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(jPn_PedidoLayout.createSequentialGroup()
@@ -409,9 +426,9 @@ public class RequestIntFrameform extends javax.swing.JInternalFrame {
                 .addGap(18, 18, 18)
                 .addGroup(jPn_PedidoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel10)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txt_RequestItemSearch, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel11)
-                    .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(cmb_Items, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(jPn_PedidoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel12)
@@ -497,6 +514,16 @@ public class RequestIntFrameform extends javax.swing.JInternalFrame {
         panelRequest.setSelectedIndex(1);
     }//GEN-LAST:event_btn_RequestActionPerformed
 
+    private void txt_RequestItemSearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_RequestItemSearchActionPerformed
+        cmb_Items.removeAllItems();
+        ItemsList.clear();
+        RequestC.itensController(txt_RequestItemSearch.getText(), ItemsList);
+        
+        for(String i: ItemsList) {
+            cmb_Items.addItem(i);
+        }
+    }//GEN-LAST:event_txt_RequestItemSearchActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btn_Closed;
@@ -509,7 +536,7 @@ public class RequestIntFrameform extends javax.swing.JInternalFrame {
     private javax.swing.JButton btn_finish;
     private javax.swing.JButton btn_subt;
     private javax.swing.JComboBox<String> cmb_Clients;
-    private javax.swing.JComboBox<String> jComboBox1;
+    private javax.swing.JComboBox<String> cmb_Items;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -529,11 +556,11 @@ public class RequestIntFrameform extends javax.swing.JInternalFrame {
     private javax.swing.JPanel jPn_Pedido;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JSeparator jSeparator2;
-    private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jtf_txt_NameClient;
     private javax.swing.JTabbedPane panelRequest;
     private javax.swing.JTable requestTable;
     private javax.swing.JTextField txt_RequestCode;
+    private javax.swing.JTextField txt_RequestItemSearch;
     private javax.swing.JTextField txt_RequestPrice;
     private javax.swing.JTextField txt_RequestQuantit;
     private javax.swing.JTextField txt_Total;

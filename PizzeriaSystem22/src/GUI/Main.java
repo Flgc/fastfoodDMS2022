@@ -41,6 +41,7 @@ public class Main extends javax.swing.JFrame {
         Jfm_Cashier.setIcon(new ImageIcon(getClass().getResource("/Icons/ico_caixa.png")));
         Jfm_Report.setIcon(new ImageIcon(getClass().getResource("/Icons/ico_rel.png")));
         Jfm_Exit.setIcon(new ImageIcon(getClass().getResource("/Icons/ico_sair.png")));
+        Jfm_CashierRequest.setIcon(new ImageIcon(getClass().getResource("/Icons/ico_pedidos.png")));
         
         // Bar Icon from operational system
         ImageIcon icon = new ImageIcon(getClass().getResource("/Icons/ico_cardapio.png"));

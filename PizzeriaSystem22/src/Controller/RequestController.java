@@ -5,10 +5,23 @@
  */
 package Controller;
 
+import DAO.RequestDAO;
+import java.util.List;
+
 /**
  *
  * @author fabio
  */
 public class RequestController {
+    
+    RequestDAO RequestD;
+
+    public RequestController() {
+        RequestD = new RequestDAO();
+    } 
+    
+    public void itensController(String sSearch, List<String>ItemsList){
+        RequestD.itensFind(sSearch, ItemsList);
+   }  
     
 }
