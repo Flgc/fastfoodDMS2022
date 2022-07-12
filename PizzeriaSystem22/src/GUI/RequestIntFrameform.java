@@ -97,7 +97,7 @@ public class RequestIntFrameform extends javax.swing.JInternalFrame {
         jLabel14 = new javax.swing.JLabel();
         txt_RequestCode = new javax.swing.JTextField();
         btn_subt = new javax.swing.JButton();
-        btn_Price1 = new javax.swing.JButton();
+        btn_Price = new javax.swing.JButton();
         btn_add = new javax.swing.JButton();
         jLabel15 = new javax.swing.JLabel();
         txt_Total = new javax.swing.JTextField();
@@ -298,6 +298,7 @@ public class RequestIntFrameform extends javax.swing.JInternalFrame {
 
         panelRequest.addTab("Clientes", jPn_Clientes);
 
+        jtf_txt_NameClient.setEditable(false);
         jtf_txt_NameClient.setHorizontalAlignment(javax.swing.JTextField.CENTER);
 
         jLabel10.setText("Item");
@@ -307,27 +308,48 @@ public class RequestIntFrameform extends javax.swing.JInternalFrame {
                 txt_RequestItemSearchActionPerformed(evt);
             }
         });
+        txt_RequestItemSearch.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                txt_RequestItemSearchKeyReleased(evt);
+            }
+        });
 
         jLabel11.setText("Selecionar");
 
         cmb_Items.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "<--  Pesquise um Item ao Lado" }));
         cmb_Items.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        cmb_Items.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cmb_ItemsActionPerformed(evt);
+            }
+        });
 
         jLabel12.setText("Preço");
 
+        txt_RequestPrice.setEditable(false);
+
         jLabel13.setText("Quantidade");
 
-        jLabel14.setText("Nª do Pedido");
+        jLabel14.setText("Código do Item");
+
+        txt_RequestCode.setEditable(false);
 
         btn_subt.setText("-");
         btn_subt.setMaximumSize(new java.awt.Dimension(43, 24));
         btn_subt.setMinimumSize(new java.awt.Dimension(43, 24));
 
-        btn_Price1.setText("Preço");
+        btn_Price.setText("Obter Preço");
+        btn_Price.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_PriceActionPerformed(evt);
+            }
+        });
 
         btn_add.setText("+");
 
         jLabel15.setText("Total");
+
+        txt_Total.setEditable(false);
 
         btn_calc.setText("Calcular");
         btn_calc.setMaximumSize(new java.awt.Dimension(43, 24));
@@ -386,7 +408,7 @@ public class RequestIntFrameform extends javax.swing.JInternalFrame {
                             .addGroup(jPn_PedidoLayout.createSequentialGroup()
                                 .addGroup(jPn_PedidoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(jPn_PedidoLayout.createSequentialGroup()
-                                        .addComponent(btn_Price1)
+                                        .addComponent(btn_Price)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                         .addComponent(jLabel12)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -409,7 +431,7 @@ public class RequestIntFrameform extends javax.swing.JInternalFrame {
                                         .addComponent(jLabel15)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                         .addComponent(txt_Total, javax.swing.GroupLayout.PREFERRED_SIZE, 147, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                .addGap(0, 70, Short.MAX_VALUE)))))
+                                .addGap(0, 50, Short.MAX_VALUE)))))
                 .addContainerGap())
             .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPn_PedidoLayout.createSequentialGroup()
@@ -437,7 +459,7 @@ public class RequestIntFrameform extends javax.swing.JInternalFrame {
                     .addComponent(txt_RequestQuantit, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel14)
                     .addComponent(txt_RequestCode, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btn_Price1))
+                    .addComponent(btn_Price))
                 .addGap(18, 18, 18)
                 .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 11, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -515,6 +537,16 @@ public class RequestIntFrameform extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_btn_RequestActionPerformed
 
     private void txt_RequestItemSearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_RequestItemSearchActionPerformed
+
+    }//GEN-LAST:event_txt_RequestItemSearchActionPerformed
+
+    private void btn_PriceActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_PriceActionPerformed
+        txt_RequestPrice.setText(RequestC.itemPriceController(cmb_Items.getSelectedItem().toString()) +"" );
+        txt_RequestCode.setText(RequestC.itemCodController(cmb_Items.getSelectedItem().toString()) +"" );
+    }//GEN-LAST:event_btn_PriceActionPerformed
+
+    private void txt_RequestItemSearchKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txt_RequestItemSearchKeyReleased
+        txt_RequestPrice.setText("");
         cmb_Items.removeAllItems();
         ItemsList.clear();
         RequestC.itensController(txt_RequestItemSearch.getText(), ItemsList);
@@ -522,13 +554,18 @@ public class RequestIntFrameform extends javax.swing.JInternalFrame {
         for(String i: ItemsList) {
             cmb_Items.addItem(i);
         }
-    }//GEN-LAST:event_txt_RequestItemSearchActionPerformed
+    }//GEN-LAST:event_txt_RequestItemSearchKeyReleased
+
+    private void cmb_ItemsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmb_ItemsActionPerformed
+        txt_RequestPrice.setText("");
+        txt_RequestQuantit.setText("");
+    }//GEN-LAST:event_cmb_ItemsActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btn_Closed;
     private javax.swing.JButton btn_ClosedRequest;
-    private javax.swing.JButton btn_Price1;
+    private javax.swing.JButton btn_Price;
     private javax.swing.JButton btn_Request;
     private javax.swing.JButton btn_Search;
     private javax.swing.JButton btn_add;

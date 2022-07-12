@@ -24,4 +24,12 @@ public class RequestController {
         RequestD.itensFind(sSearch, ItemsList);
    }  
     
+    public double itemPriceController(String sSearch){ 
+        return RequestD.itemPrice(sSearch);           
+    }   
+    
+    public int itemCodController(String sSearch){ 
+        return RequestD.itemCod(sSearch);           
+    }       
+    
 }

@@ -19,7 +19,7 @@ import javax.swing.JOptionPane;
  */
 public class RequestDAO {
     
-        public void itensFind(String sSearch, List<String>ItemsList){        
+   public void itensFind(String sSearch, List<String>ItemsList){        
         try {        
         String SQLSelection = "select * from tb_menu where description_men like '%" + sSearch + "%' ";  
         PreparedStatement st = DbConnection.getConnection().prepareStatement(SQLSelection);
@@ -30,5 +30,36 @@ public class RequestDAO {
         } catch (SQLException ex) {
             JOptionPane.showMessageDialog(null, "Erro ao Realizar a Pesquisa", "Error", 0, new ImageIcon("img/btn_sair.png"));    
         }        
-    }      
+    }
+   
+   public double itemPrice(String sSearch){
+          try {        
+                String SQLSelection = "select * from tb_menu where description_men = ?";  
+                PreparedStatement st = DbConnection.getConnection().prepareStatement(SQLSelection);
+                st.setString(1, sSearch);
+                ResultSet rs = st.executeQuery();
+                if(rs.next()){
+                    return rs.getDouble("price_men") ;
+                }
+         } catch (SQLException ex) {
+                    JOptionPane.showMessageDialog(null, "Erro ao Realizar a Pesquisa", "Error", 0, new ImageIcon("img/btn_sair.png"));    
+         }  
+          return 0;
+   }
+   
+      public int itemCod(String sSearch){
+          try {        
+                String SQLSelection = "select * from tb_menu where description_men = ?";  
+                PreparedStatement st = DbConnection.getConnection().prepareStatement(SQLSelection);
+                st.setString(1, sSearch);
+                ResultSet rs = st.executeQuery();
+                if(rs.next()){
+                    return rs.getInt("cod_men") ;
+                }
+         } catch (SQLException ex) {
+                    JOptionPane.showMessageDialog(null, "Erro ao Realizar a Pesquisa", "Error", 0, new ImageIcon("img/btn_sair.png"));    
+         }  
+          return 0;
+   }
+   
 }

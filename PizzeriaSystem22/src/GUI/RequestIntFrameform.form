@@ -409,7 +409,7 @@
                                   <Group type="102" attributes="0">
                                       <Group type="103" groupAlignment="0" attributes="0">
                                           <Group type="102" attributes="0">
-                                              <Component id="btn_Price1" min="-2" max="-2" attributes="0"/>
+                                              <Component id="btn_Price" min="-2" max="-2" attributes="0"/>
                                               <EmptySpace max="-2" attributes="0"/>
                                               <Component id="jLabel12" min="-2" max="-2" attributes="0"/>
                                               <EmptySpace max="-2" attributes="0"/>
@@ -435,7 +435,7 @@
                                               <Component id="txt_Total" min="-2" pref="147" max="-2" attributes="0"/>
                                           </Group>
                                       </Group>
-                                      <EmptySpace min="0" pref="70" max="32767" attributes="0"/>
+                                      <EmptySpace min="0" pref="50" max="32767" attributes="0"/>
                                   </Group>
                               </Group>
                           </Group>
@@ -471,7 +471,7 @@
                           <Component id="txt_RequestQuantit" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="jLabel14" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="txt_RequestCode" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="btn_Price1" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="btn_Price" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Component id="jSeparator2" min="-2" pref="11" max="-2" attributes="0"/>
@@ -498,6 +498,7 @@
           <SubComponents>
             <Component class="javax.swing.JTextField" name="jtf_txt_NameClient">
               <Properties>
+                <Property name="editable" type="boolean" value="false"/>
                 <Property name="horizontalAlignment" type="int" value="0"/>
               </Properties>
             </Component>
@@ -509,6 +510,7 @@
             <Component class="javax.swing.JTextField" name="txt_RequestItemSearch">
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txt_RequestItemSearchActionPerformed"/>
+                <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="txt_RequestItemSearchKeyReleased"/>
               </Events>
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel11">
@@ -527,6 +529,9 @@
                   <Color id="Hand Cursor"/>
                 </Property>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="cmb_ItemsActionPerformed"/>
+              </Events>
               <AuxValues>
                 <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
               </AuxValues>
@@ -537,6 +542,9 @@
               </Properties>
             </Component>
             <Component class="javax.swing.JTextField" name="txt_RequestPrice">
+              <Properties>
+                <Property name="editable" type="boolean" value="false"/>
+              </Properties>
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel13">
               <Properties>
@@ -547,10 +555,13 @@
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel14">
               <Properties>
-                <Property name="text" type="java.lang.String" value="N&#xaa; do Pedido"/>
+                <Property name="text" type="java.lang.String" value="C&#xf3;digo do Item"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JTextField" name="txt_RequestCode">
+              <Properties>
+                <Property name="editable" type="boolean" value="false"/>
+              </Properties>
             </Component>
             <Component class="javax.swing.JButton" name="btn_subt">
               <Properties>
@@ -563,10 +574,13 @@
                 </Property>
               </Properties>
             </Component>
-            <Component class="javax.swing.JButton" name="btn_Price1">
+            <Component class="javax.swing.JButton" name="btn_Price">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Pre&#xe7;o"/>
+                <Property name="text" type="java.lang.String" value="Obter Pre&#xe7;o"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btn_PriceActionPerformed"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JButton" name="btn_add">
               <Properties>
@@ -579,6 +593,9 @@
               </Properties>
             </Component>
             <Component class="javax.swing.JTextField" name="txt_Total">
+              <Properties>
+                <Property name="editable" type="boolean" value="false"/>
+              </Properties>
             </Component>
             <Component class="javax.swing.JSeparator" name="jSeparator2">
             </Component>
