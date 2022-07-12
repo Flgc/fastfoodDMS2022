@@ -11,6 +11,7 @@ import Controller.ClientController;
 import Controller.RequestController;
 import java.util.ArrayList;
 import java.util.List;
+import javax.swing.ImageIcon;
 import javax.swing.text.MaskFormatter;
 import javax.swing.JFormattedTextField;
 import javax.swing.JOptionPane;
@@ -330,6 +331,13 @@ public class RequestIntFrameform extends javax.swing.JInternalFrame {
 
         jLabel13.setText("Quantidade");
 
+        txt_RequestQuantit.setText("1");
+        txt_RequestQuantit.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                txt_RequestQuantitFocusLost(evt);
+            }
+        });
+
         jLabel14.setText("Código do Item");
 
         txt_RequestCode.setEditable(false);
@@ -346,6 +354,11 @@ public class RequestIntFrameform extends javax.swing.JInternalFrame {
         });
 
         btn_add.setText("+");
+        btn_add.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_addActionPerformed(evt);
+            }
+        });
 
         jLabel15.setText("Total");
 
@@ -423,9 +436,9 @@ public class RequestIntFrameform extends javax.swing.JInternalFrame {
                                         .addComponent(txt_RequestCode, javax.swing.GroupLayout.PREFERRED_SIZE, 147, javax.swing.GroupLayout.PREFERRED_SIZE))
                                     .addGroup(jPn_PedidoLayout.createSequentialGroup()
                                         .addComponent(btn_add, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(18, 18, 18)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                         .addComponent(btn_subt, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(429, 429, 429)
+                                        .addGap(442, 442, 442)
                                         .addComponent(btn_calc, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                         .addComponent(jLabel15)
@@ -558,8 +571,17 @@ public class RequestIntFrameform extends javax.swing.JInternalFrame {
 
     private void cmb_ItemsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmb_ItemsActionPerformed
         txt_RequestPrice.setText("");
-        txt_RequestQuantit.setText("");
+        txt_RequestQuantit.setText("1");
     }//GEN-LAST:event_cmb_ItemsActionPerformed
+
+    private void txt_RequestQuantitFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txt_RequestQuantitFocusLost
+
+    }//GEN-LAST:event_txt_RequestQuantitFocusLost
+
+    private void btn_addActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_addActionPerformed
+        if (RequestC.itemVerify(txt_RequestPrice.getText(), txt_RequestQuantit.getText(), txt_RequestCode.getText(),cmb_Items.getSelectedItem().toString())){
+        }
+    }//GEN-LAST:event_btn_addActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

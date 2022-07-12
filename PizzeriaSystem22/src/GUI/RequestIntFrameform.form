@@ -425,9 +425,9 @@
                                           </Group>
                                           <Group type="102" attributes="0">
                                               <Component id="btn_add" min="-2" pref="43" max="-2" attributes="0"/>
-                                              <EmptySpace type="separate" max="-2" attributes="0"/>
+                                              <EmptySpace max="-2" attributes="0"/>
                                               <Component id="btn_subt" min="-2" pref="46" max="-2" attributes="0"/>
-                                              <EmptySpace min="-2" pref="429" max="-2" attributes="0"/>
+                                              <EmptySpace min="-2" pref="442" max="-2" attributes="0"/>
                                               <Component id="btn_calc" min="-2" max="-2" attributes="0"/>
                                               <EmptySpace max="-2" attributes="0"/>
                                               <Component id="jLabel15" min="-2" max="-2" attributes="0"/>
@@ -552,6 +552,12 @@
               </Properties>
             </Component>
             <Component class="javax.swing.JTextField" name="txt_RequestQuantit">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="1"/>
+              </Properties>
+              <Events>
+                <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="txt_RequestQuantitFocusLost"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel14">
               <Properties>
@@ -586,6 +592,9 @@
               <Properties>
                 <Property name="text" type="java.lang.String" value="+"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btn_addActionPerformed"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel15">
               <Properties>

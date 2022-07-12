@@ -7,6 +7,8 @@ package Controller;
 
 import DAO.RequestDAO;
 import java.util.List;
+import javax.swing.ImageIcon;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -30,6 +32,39 @@ public class RequestController {
     
     public int itemCodController(String sSearch){ 
         return RequestD.itemCod(sSearch);           
-    }       
+    } 
+    
+    public boolean itemVerify(String Price, String Quantit, String Code, String Item){
+        
+       try {
+             int x = Integer.parseInt(Quantit);
+             if (x == 0){
+                    JOptionPane.showMessageDialog(null, "A Quantidade não pode ser 0", "Error", 0, new ImageIcon("img/dberro.png"));  
+              }
+            } catch (NumberFormatException Ex) {
+                JOptionPane.showMessageDialog(null, "Insira um número inteiro", "Error", 0, new ImageIcon("img/dberro.png"));  
+       }          
+        
+       if(Quantit.equals("")){
+          return false;
+        }
+       
+       if(Price.equals("")){
+            JOptionPane.showMessageDialog(null, "Preencha o campo Preço", "Error", 0, new ImageIcon("img/dberro.png")); 
+            return false;
+        }
+       
+       if(Code.equals("")){
+            JOptionPane.showMessageDialog(null, "Preencha o campo Código", "Error", 0, new ImageIcon("img/dberro.png"));  
+            return false;
+        }
+
+       if(Item.equals("")){
+            JOptionPane.showMessageDialog(null, "Preencha o campo Item", "Error", 0, new ImageIcon("img/dberro.png"));  
+            return false;
+        }         
+       return true;
+    }
+    
     
 }

@@ -4,9 +4,6 @@
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
             <file>file:/mnt/70AEE1DFAEE19DBA/REDE/NetBeansProjects/sistemaPizzaria062022/PizzeriaSystem22/src/Controller/RequestController.java</file>
-            <file>file:/mnt/70AEE1DFAEE19DBA/REDE/NetBeansProjects/sistemaPizzaria062022/PizzeriaSystem22/src/Controller/ClientController.java</file>
-            <file>file:/mnt/70AEE1DFAEE19DBA/REDE/NetBeansProjects/sistemaPizzaria062022/PizzeriaSystem22/src/DAO/ClientDAO.java</file>
-            <file>file:/mnt/70AEE1DFAEE19DBA/REDE/NetBeansProjects/sistemaPizzaria062022/PizzeriaSystem22/src/GUI/ClientIntFrameform.java</file>
             <file>file:/mnt/70AEE1DFAEE19DBA/REDE/NetBeansProjects/sistemaPizzaria062022/PizzeriaSystem22/src/GUI/RequestIntFrameform.java</file>
             <file>file:/mnt/70AEE1DFAEE19DBA/REDE/NetBeansProjects/sistemaPizzaria062022/PizzeriaSystem22/src/DAO/RequestDAO.java</file>
         </group>
