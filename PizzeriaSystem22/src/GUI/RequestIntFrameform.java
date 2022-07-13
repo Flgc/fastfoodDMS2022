@@ -621,7 +621,7 @@ public class RequestIntFrameform extends javax.swing.JInternalFrame {
     private javax.swing.JTextField txt_RequestCode;
     private javax.swing.JTextField txt_RequestItemSearch;
     private javax.swing.JTextField txt_RequestPrice;
-    private javax.swing.JTextField txt_RequestQuantit;
+    public static javax.swing.JTextField txt_RequestQuantit;
     private javax.swing.JTextField txt_Total;
     private javax.swing.JTextField txt_adressCli;
     private javax.swing.JTextField txt_codCli;

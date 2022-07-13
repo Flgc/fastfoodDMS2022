@@ -40,7 +40,7 @@ CREATE TABLE `tb_menu` (
   `cod_men` int NOT NULL AUTO_INCREMENT,
   `description_men` varchar(80) NOT NULL,
   `type_men` varchar(80) NOT NULL,
-  `p-rice_men` decimal(10,2) NOT NULL,
+  `price_men` decimal(10,2) NOT NULL,
   `date_cad_men` date  NOT NULL,
   PRIMARY KEY (`cod_men`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;

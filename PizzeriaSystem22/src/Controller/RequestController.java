@@ -6,6 +6,7 @@
 package Controller;
 
 import DAO.RequestDAO;
+import GUI.RequestIntFrameform;
 import java.util.List;
 import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
@@ -40,9 +41,13 @@ public class RequestController {
              int x = Integer.parseInt(Quantit);
              if (x == 0){
                     JOptionPane.showMessageDialog(null, "A Quantidade não pode ser 0", "Error", 0, new ImageIcon("img/dberro.png"));  
+                    RequestIntFrameform.txt_RequestQuantit.setText("1");
+                    RequestIntFrameform.txt_RequestQuantit.grabFocus();                    
               }
             } catch (NumberFormatException Ex) {
                 JOptionPane.showMessageDialog(null, "Insira um número inteiro", "Error", 0, new ImageIcon("img/dberro.png"));  
+                RequestIntFrameform.txt_RequestQuantit.setText("1");
+                RequestIntFrameform.txt_RequestQuantit.grabFocus();   
        }          
         
        if(Quantit.equals("")){
