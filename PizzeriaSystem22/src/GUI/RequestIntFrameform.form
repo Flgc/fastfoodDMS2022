@@ -632,15 +632,21 @@
                 <Component class="javax.swing.JTable" name="requestTable">
                   <Properties>
                     <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
-                      <Table columnCount="4" rowCount="4">
+                      <Table columnCount="5" rowCount="0">
                         <Column editable="false" title="C&#xf3;digo Item" type="java.lang.Object"/>
                         <Column editable="false" title="Descri&#xe7;&#xe3;o" type="java.lang.Object"/>
                         <Column editable="false" title="Pre&#xe7;o" type="java.lang.Object"/>
+                        <Column editable="false" title="Quantidade" type="java.lang.Object"/>
                         <Column editable="false" title="Total" type="java.lang.Object"/>
                       </Table>
                     </Property>
                     <Property name="columnModel" type="javax.swing.table.TableColumnModel" editor="org.netbeans.modules.form.editors2.TableColumnModelEditor">
                       <TableColumnModel selectionModel="0">
+                        <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
+                          <Title/>
+                          <Editor/>
+                          <Renderer/>
+                        </Column>
                         <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
                           <Title/>
                           <Editor/>
@@ -685,6 +691,9 @@
                   <Color id="Hand Cursor"/>
                 </Property>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btn_ClosedRequestActionPerformed"/>
+              </Events>
             </Component>
           </SubComponents>
         </Container>

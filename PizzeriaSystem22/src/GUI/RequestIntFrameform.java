@@ -9,12 +9,13 @@ import Beans.ClientBeans;
 import Beans.RequestBeans;
 import Controller.ClientController;
 import Controller.RequestController;
+import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.List;
-import javax.swing.ImageIcon;
 import javax.swing.text.MaskFormatter;
 import javax.swing.JFormattedTextField;
 import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -28,6 +29,8 @@ public class RequestIntFrameform extends javax.swing.JInternalFrame {
     RequestController RequestC;
     List<String> sList;
     List<String> ItemsList;
+    DefaultTableModel Model;
+    DecimalFormat decimalFormat;
 
     MaskFormatter TelFormat;
     
@@ -45,6 +48,9 @@ public class RequestIntFrameform extends javax.swing.JInternalFrame {
         RequestC = new RequestController();
         
         panelRequest.setEnabledAt(1, false);
+        Model = (DefaultTableModel)  requestTable.getModel();
+        
+        decimalFormat  = new DecimalFormat("0.00");
     }
 
     /**
@@ -370,17 +376,14 @@ public class RequestIntFrameform extends javax.swing.JInternalFrame {
 
         requestTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
+
             },
             new String [] {
-                "Código Item", "Descrição", "Preço", "Total"
+                "Código Item", "Descrição", "Preço", "Quantidade", "Total"
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                false, false, false, false
+                false, false, false, false, false
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
@@ -394,6 +397,11 @@ public class RequestIntFrameform extends javax.swing.JInternalFrame {
 
         btn_ClosedRequest.setText("Fechar");
         btn_ClosedRequest.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btn_ClosedRequest.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_ClosedRequestActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPn_PedidoLayout = new javax.swing.GroupLayout(jPn_Pedido);
         jPn_Pedido.setLayout(jPn_PedidoLayout);
@@ -579,9 +587,24 @@ public class RequestIntFrameform extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_txt_RequestQuantitFocusLost
 
     private void btn_addActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_addActionPerformed
-        if (RequestC.itemVerify(txt_RequestPrice.getText(), txt_RequestQuantit.getText(), txt_RequestCode.getText(),cmb_Items.getSelectedItem().toString())){
+        if (RequestC.itemVerify(txt_RequestPrice.getText(), txt_RequestQuantit.getText(), 
+                txt_RequestCode.getText(),cmb_Items.getSelectedItem().toString())){
+           
+            double Total = Double.parseDouble(txt_RequestPrice.getText()) *  
+                   Integer.parseInt(txt_RequestQuantit.getText());
+            
+            Model.addRow(new Object[] {
+                       txt_RequestCode.getText(), cmb_Items.getSelectedItem(), txt_RequestPrice.getText(), 
+                       txt_RequestQuantit.getText(), decimalFormat.format(Total).replace(',', '.')
+                   });
+            
+            itemsClear();
         }
     }//GEN-LAST:event_btn_addActionPerformed
+
+    private void btn_ClosedRequestActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_ClosedRequestActionPerformed
+        dispose();
+    }//GEN-LAST:event_btn_ClosedRequestActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -645,4 +668,12 @@ public class RequestIntFrameform extends javax.swing.JInternalFrame {
         txt_stateCli.setEnabled(value);
         txt_zipCli.setEnabled(value);    
     }  
+    
+    final void itemsClear() {
+        txt_RequestItemSearch.setText("");
+        cmb_Items.removeAllItems();
+        txt_RequestQuantit.setText("");
+        txt_RequestQuantit.setText("1");
+        txt_RequestPrice.setText("");        
+    }     
 }

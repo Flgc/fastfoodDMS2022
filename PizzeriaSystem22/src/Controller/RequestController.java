@@ -42,12 +42,14 @@ public class RequestController {
              if (x == 0){
                     JOptionPane.showMessageDialog(null, "A Quantidade não pode ser 0", "Error", 0, new ImageIcon("img/dberro.png"));  
                     RequestIntFrameform.txt_RequestQuantit.setText("1");
-                    RequestIntFrameform.txt_RequestQuantit.grabFocus();                    
+                    RequestIntFrameform.txt_RequestQuantit.grabFocus();   
+                     return false;
               }
             } catch (NumberFormatException Ex) {
                 JOptionPane.showMessageDialog(null, "Insira um número inteiro", "Error", 0, new ImageIcon("img/dberro.png"));  
                 RequestIntFrameform.txt_RequestQuantit.setText("1");
                 RequestIntFrameform.txt_RequestQuantit.grabFocus();   
+                 return false;
        }          
         
        if(Quantit.equals("")){
