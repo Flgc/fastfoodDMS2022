@@ -424,12 +424,10 @@
                                               <Component id="txt_RequestCode" min="-2" pref="147" max="-2" attributes="0"/>
                                           </Group>
                                           <Group type="102" attributes="0">
-                                              <Component id="btn_add" min="-2" pref="43" max="-2" attributes="0"/>
+                                              <Component id="btn_itemInclude" min="-2" pref="43" max="-2" attributes="0"/>
                                               <EmptySpace max="-2" attributes="0"/>
-                                              <Component id="btn_subt" min="-2" pref="46" max="-2" attributes="0"/>
-                                              <EmptySpace min="-2" pref="442" max="-2" attributes="0"/>
-                                              <Component id="btn_calc" min="-2" max="-2" attributes="0"/>
-                                              <EmptySpace max="-2" attributes="0"/>
+                                              <Component id="btn_itemRemove" min="-2" pref="46" max="-2" attributes="0"/>
+                                              <EmptySpace min="-2" pref="533" max="-2" attributes="0"/>
                                               <Component id="jLabel15" min="-2" max="-2" attributes="0"/>
                                               <EmptySpace max="-2" attributes="0"/>
                                               <Component id="txt_Total" min="-2" pref="147" max="-2" attributes="0"/>
@@ -477,11 +475,10 @@
                       <Component id="jSeparator2" min="-2" pref="11" max="-2" attributes="0"/>
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="btn_add" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="btn_subt" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="btn_itemInclude" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="btn_itemRemove" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="jLabel15" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="txt_Total" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="btn_calc" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Component id="jScrollPane1" pref="237" max="32767" attributes="0"/>
@@ -572,7 +569,7 @@
                 <Property name="editable" type="boolean" value="false"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JButton" name="btn_subt">
+            <Component class="javax.swing.JButton" name="btn_itemRemove">
               <Properties>
                 <Property name="text" type="java.lang.String" value="-"/>
                 <Property name="maximumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
@@ -582,6 +579,9 @@
                   <Dimension value="[43, 24]"/>
                 </Property>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btn_itemRemoveActionPerformed"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JButton" name="btn_Price">
               <Properties>
@@ -591,12 +591,12 @@
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btn_PriceActionPerformed"/>
               </Events>
             </Component>
-            <Component class="javax.swing.JButton" name="btn_add">
+            <Component class="javax.swing.JButton" name="btn_itemInclude">
               <Properties>
                 <Property name="text" type="java.lang.String" value="+"/>
               </Properties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btn_addActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btn_itemIncludeActionPerformed"/>
               </Events>
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel15">
@@ -610,17 +610,6 @@
               </Properties>
             </Component>
             <Component class="javax.swing.JSeparator" name="jSeparator2">
-            </Component>
-            <Component class="javax.swing.JButton" name="btn_calc">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="Calcular"/>
-                <Property name="maximumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
-                  <Dimension value="[43, 24]"/>
-                </Property>
-                <Property name="minimumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
-                  <Dimension value="[43, 24]"/>
-                </Property>
-              </Properties>
             </Component>
             <Container class="javax.swing.JScrollPane" name="jScrollPane1">
               <AuxValues>

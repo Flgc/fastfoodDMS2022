@@ -15,6 +15,7 @@ import java.util.List;
 import javax.swing.text.MaskFormatter;
 import javax.swing.JFormattedTextField;
 import javax.swing.JOptionPane;
+import javax.swing.ListSelectionModel;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -51,6 +52,7 @@ public class RequestIntFrameform extends javax.swing.JInternalFrame {
         Model = (DefaultTableModel)  requestTable.getModel();
         
         decimalFormat  = new DecimalFormat("0.00");
+        requestTable.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
     }
 
     /**
@@ -103,13 +105,12 @@ public class RequestIntFrameform extends javax.swing.JInternalFrame {
         txt_RequestQuantit = new javax.swing.JTextField();
         jLabel14 = new javax.swing.JLabel();
         txt_RequestCode = new javax.swing.JTextField();
-        btn_subt = new javax.swing.JButton();
+        btn_itemRemove = new javax.swing.JButton();
         btn_Price = new javax.swing.JButton();
-        btn_add = new javax.swing.JButton();
+        btn_itemInclude = new javax.swing.JButton();
         jLabel15 = new javax.swing.JLabel();
         txt_Total = new javax.swing.JTextField();
         jSeparator2 = new javax.swing.JSeparator();
-        btn_calc = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         requestTable = new javax.swing.JTable();
         btn_finish = new javax.swing.JButton();
@@ -348,9 +349,14 @@ public class RequestIntFrameform extends javax.swing.JInternalFrame {
 
         txt_RequestCode.setEditable(false);
 
-        btn_subt.setText("-");
-        btn_subt.setMaximumSize(new java.awt.Dimension(43, 24));
-        btn_subt.setMinimumSize(new java.awt.Dimension(43, 24));
+        btn_itemRemove.setText("-");
+        btn_itemRemove.setMaximumSize(new java.awt.Dimension(43, 24));
+        btn_itemRemove.setMinimumSize(new java.awt.Dimension(43, 24));
+        btn_itemRemove.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_itemRemoveActionPerformed(evt);
+            }
+        });
 
         btn_Price.setText("Obter Preço");
         btn_Price.addActionListener(new java.awt.event.ActionListener() {
@@ -359,20 +365,16 @@ public class RequestIntFrameform extends javax.swing.JInternalFrame {
             }
         });
 
-        btn_add.setText("+");
-        btn_add.addActionListener(new java.awt.event.ActionListener() {
+        btn_itemInclude.setText("+");
+        btn_itemInclude.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btn_addActionPerformed(evt);
+                btn_itemIncludeActionPerformed(evt);
             }
         });
 
         jLabel15.setText("Total");
 
         txt_Total.setEditable(false);
-
-        btn_calc.setText("Calcular");
-        btn_calc.setMaximumSize(new java.awt.Dimension(43, 24));
-        btn_calc.setMinimumSize(new java.awt.Dimension(43, 24));
 
         requestTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -443,12 +445,10 @@ public class RequestIntFrameform extends javax.swing.JInternalFrame {
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                         .addComponent(txt_RequestCode, javax.swing.GroupLayout.PREFERRED_SIZE, 147, javax.swing.GroupLayout.PREFERRED_SIZE))
                                     .addGroup(jPn_PedidoLayout.createSequentialGroup()
-                                        .addComponent(btn_add, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(btn_itemInclude, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(btn_subt, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(442, 442, 442)
-                                        .addComponent(btn_calc, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(btn_itemRemove, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(533, 533, 533)
                                         .addComponent(jLabel15)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                         .addComponent(txt_Total, javax.swing.GroupLayout.PREFERRED_SIZE, 147, javax.swing.GroupLayout.PREFERRED_SIZE)))
@@ -485,11 +485,10 @@ public class RequestIntFrameform extends javax.swing.JInternalFrame {
                 .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 11, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPn_PedidoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btn_add)
-                    .addComponent(btn_subt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btn_itemInclude)
+                    .addComponent(btn_itemRemove, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel15)
-                    .addComponent(txt_Total, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btn_calc, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txt_Total, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 237, Short.MAX_VALUE)
                 .addGap(18, 18, 18)
@@ -586,7 +585,7 @@ public class RequestIntFrameform extends javax.swing.JInternalFrame {
 
     }//GEN-LAST:event_txt_RequestQuantitFocusLost
 
-    private void btn_addActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_addActionPerformed
+    private void btn_itemIncludeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_itemIncludeActionPerformed
         if (RequestC.itemVerify(txt_RequestPrice.getText(), txt_RequestQuantit.getText(), 
                 txt_RequestCode.getText(),cmb_Items.getSelectedItem().toString())){
            
@@ -595,28 +594,33 @@ public class RequestIntFrameform extends javax.swing.JInternalFrame {
             
             Model.addRow(new Object[] {
                        txt_RequestCode.getText(), cmb_Items.getSelectedItem(), txt_RequestPrice.getText(), 
-                       txt_RequestQuantit.getText(), decimalFormat.format(Total).replace(',', '.')
+                       txt_RequestQuantit.getText(), Total
                    });
             
             itemsClear();
+            TotalCalculate();
         }
-    }//GEN-LAST:event_btn_addActionPerformed
+    }//GEN-LAST:event_btn_itemIncludeActionPerformed
 
     private void btn_ClosedRequestActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_ClosedRequestActionPerformed
         dispose();
     }//GEN-LAST:event_btn_ClosedRequestActionPerformed
 
+    private void btn_itemRemoveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_itemRemoveActionPerformed
+        Model.removeRow(requestTable.getSelectedRow());    
+        TotalCalculate();
+    }//GEN-LAST:event_btn_itemRemoveActionPerformed
 
+   
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btn_Closed;
     private javax.swing.JButton btn_ClosedRequest;
     private javax.swing.JButton btn_Price;
     private javax.swing.JButton btn_Request;
     private javax.swing.JButton btn_Search;
-    private javax.swing.JButton btn_add;
-    private javax.swing.JButton btn_calc;
     private javax.swing.JButton btn_finish;
-    private javax.swing.JButton btn_subt;
+    private javax.swing.JButton btn_itemInclude;
+    private javax.swing.JButton btn_itemRemove;
     private javax.swing.JComboBox<String> cmb_Clients;
     private javax.swing.JComboBox<String> cmb_Items;
     private javax.swing.JLabel jLabel1;
@@ -675,5 +679,13 @@ public class RequestIntFrameform extends javax.swing.JInternalFrame {
         txt_RequestQuantit.setText("");
         txt_RequestQuantit.setText("1");
         txt_RequestPrice.setText("");        
-    }     
+    } 
+final void TotalCalculate(){
+       double RequestTotal = 0;
+       for(int i = 0; i < requestTable.getRowCount(); i++) {
+           RequestTotal += Double.parseDouble(Model.getValueAt(i, 4).toString());
+       }
+       txt_Total.setText(decimalFormat.format(RequestTotal).replace('.', ','));
+}
+    
 }
