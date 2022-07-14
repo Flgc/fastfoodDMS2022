@@ -24,6 +24,8 @@ public class Main extends javax.swing.JFrame {
     RequestIntFrameform requestIntFrameform; 
     
     
+    
+    
     public Main() {
         initComponents();
         setExtendedState(JFrame.MAXIMIZED_BOTH);
@@ -45,7 +47,8 @@ public class Main extends javax.swing.JFrame {
         
         // Bar Icon from operational system
         ImageIcon icon = new ImageIcon(getClass().getResource("/Icons/ico_cardapio.png"));
-        setIconImage(icon.getImage());      
+        setIconImage(icon.getImage());    
+        
     }
 
     /**
@@ -185,7 +188,8 @@ public class Main extends javax.swing.JFrame {
     }//GEN-LAST:event_Jfm_RegistrationMenuEmployeeActionPerformed
 
     private void Jfm_CashierRequestActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Jfm_CashierRequestActionPerformed
-        requestIntFrameform = new RequestIntFrameform();
+        requestIntFrameform = new RequestIntFrameform(1);       //  1 => EmployeeCode for login implements in the future
+
         scrt.add(requestIntFrameform);
         requestIntFrameform.setVisible(true);
     }//GEN-LAST:event_Jfm_CashierRequestActionPerformed

@@ -5,6 +5,9 @@
  */
 package Beans;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  *
  * @author fabio
@@ -19,9 +22,15 @@ public class RequestBeans {
     private Integer codDelReq;
     private String statusReq;
     private String timeCadReq;
+    private List<Integer>MenuCode;
+    private List<Integer>Quantit;
     
     public RequestBeans(){
+        MenuCode = new ArrayList<>();
+        Quantit = new ArrayList<>();
+        
     }
+
 
     public Integer getCodReq() {
         return codReq;
@@ -86,4 +95,21 @@ public class RequestBeans {
     public void setTimeCadReq(String timeCadReq) {
         this.timeCadReq = timeCadReq;
     }
+    
+        public int getMenuCode(int position) {
+        return MenuCode.get(position);
+    }
+
+    public void setMenuCode(List<Integer> MenuCode) {
+        this.MenuCode = MenuCode;
+    }
+
+    public int getQuantit(int position) {
+        return Quantit.get(position);
+    }
+
+    public void setQuantit(List<Integer> Quantit) {
+        this.Quantit = Quantit;
+    }
+
 }

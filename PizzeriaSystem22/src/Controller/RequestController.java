@@ -73,5 +73,9 @@ public class RequestController {
        return true;
     }
     
+    public void RequestController(String ClientCode, String EmployeeCode, String Total){
+        RequestD.RequestInsert(ClientCode, EmployeeCode, Total);
+    }
+    
     
 }

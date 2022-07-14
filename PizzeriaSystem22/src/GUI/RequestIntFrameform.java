@@ -32,10 +32,11 @@ public class RequestIntFrameform extends javax.swing.JInternalFrame {
     List<String> ItemsList;
     DefaultTableModel Model;
     DecimalFormat decimalFormat;
+    int EmployeeCode;                                                           // EmployeeCode for login implements in the future
 
     MaskFormatter TelFormat;
     
-    public RequestIntFrameform() {
+    public RequestIntFrameform(int EmployeeCode) {          // EmployeeCode for login implements in the future
         initComponents();
         fieldsEnable(false);
         
@@ -53,6 +54,8 @@ public class RequestIntFrameform extends javax.swing.JInternalFrame {
         
         decimalFormat  = new DecimalFormat("0.00");
         requestTable.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
+        
+        this.EmployeeCode = EmployeeCode;                      // EmployeeCode for login implements in the future
     }
 
     /**
@@ -396,6 +399,11 @@ public class RequestIntFrameform extends javax.swing.JInternalFrame {
 
         btn_finish.setText("Finalizar");
         btn_finish.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btn_finish.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_finishActionPerformed(evt);
+            }
+        });
 
         btn_ClosedRequest.setText("Fechar");
         btn_ClosedRequest.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -610,6 +618,10 @@ public class RequestIntFrameform extends javax.swing.JInternalFrame {
         Model.removeRow(requestTable.getSelectedRow());    
         TotalCalculate();
     }//GEN-LAST:event_btn_itemRemoveActionPerformed
+
+    private void btn_finishActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_finishActionPerformed
+        RequestC.RequestController(txt_codCli.getText(), EmployeeCode + "", txt_Total.getText());
+    }//GEN-LAST:event_btn_finishActionPerformed
 
    
     // Variables declaration - do not modify//GEN-BEGIN:variables
