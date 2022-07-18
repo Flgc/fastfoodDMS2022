@@ -84,6 +84,7 @@ public class RequestDAO {
                 st.setString(7, FormattoTime.format(Date));    
                 
                 st.execute();
+                NextRequestCode();
                 DbConnection.getConnection().commit();
                 JOptionPane.showMessageDialog(null, "Pedido Salvo com Sucesso!", "Atenção !", 1, 
                         new ImageIcon("img/ok.png"));                  
@@ -91,7 +92,22 @@ public class RequestDAO {
            JOptionPane.showMessageDialog(null, "Erro ao Inserir Pedido no Banco", "Error", 0,
                    new ImageIcon("img/btn_sair.png"));   
        }
-   }   
+   } 
    
+   public String NextRequestCode() {
+       String RequestCod = "0";
+       try {                
+           String SQLSelection = "select cod_req from tb_request order by cod_req desc limit 1";           
+           PreparedStatement st = DbConnection.getConnection().prepareStatement(SQLSelection);
+           ResultSet rs = st.executeQuery();
+           if(rs.next()){
+                 RequestCod = rs.getString("cod_req");
+          }           
+       } catch (SQLException ex) {
+           JOptionPane.showMessageDialog(null, "Erro ao Recuperar o Próximo código do Pedido no Banco", 
+                   "Error", 0, new ImageIcon("img/btn_sair.png"));    
+       }
+       return RequestCod;
+   }
    
 }

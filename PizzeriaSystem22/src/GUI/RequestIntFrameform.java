@@ -10,7 +10,9 @@ import Beans.RequestBeans;
 import Controller.ClientController;
 import Controller.RequestController;
 import java.text.DecimalFormat;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import javax.swing.text.MaskFormatter;
 import javax.swing.JFormattedTextField;
@@ -33,6 +35,8 @@ public class RequestIntFrameform extends javax.swing.JInternalFrame {
     DefaultTableModel Model;
     DecimalFormat decimalFormat;
     int EmployeeCode;                                                           // EmployeeCode for login implements in the future
+    Date CurrentDate;
+    SimpleDateFormat dateFormat, timeFormat;
 
     MaskFormatter TelFormat;
     
@@ -56,6 +60,10 @@ public class RequestIntFrameform extends javax.swing.JInternalFrame {
         requestTable.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
         
         this.EmployeeCode = EmployeeCode;                      // EmployeeCode for login implements in the future
+        
+        dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+        timeFormat = new SimpleDateFormat("HH:mm:ss");
+        
     }
 
     /**
@@ -562,6 +570,7 @@ public class RequestIntFrameform extends javax.swing.JInternalFrame {
         panelRequest.setEnabledAt(0,false);
         panelRequest.setEnabledAt(1, true);
         panelRequest.setSelectedIndex(1);
+        jtf_txt_NameClient.setText(txt_nameCli.getText());
     }//GEN-LAST:event_btn_RequestActionPerformed
 
     private void txt_RequestItemSearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_RequestItemSearchActionPerformed
@@ -686,6 +695,7 @@ public class RequestIntFrameform extends javax.swing.JInternalFrame {
     }  
     
     final void itemsClear() {
+        txt_RequestCode.setText("");
         txt_RequestItemSearch.setText("");
         cmb_Items.removeAllItems();
         txt_RequestQuantit.setText("");
@@ -699,5 +709,20 @@ final void TotalCalculate(){
        }
        txt_Total.setText(decimalFormat.format(RequestTotal).replace('.', ','));
 }
-    
+
+   
+   final void BeansPopulate(){
+       CurrentDate = new Date();
+       RequestB.setCodCliReq(Integer.parseInt(txt_codCli.getText()));
+       RequestB.setCodEmpReq(EmployeeCode);
+       RequestB.setCodDelReq(1);
+       RequestB.setDateCadReq(dateFormat.format(CurrentDate));
+       RequestB.setTimeCadReq(timeFormat.format(CurrentDate));
+       RequestB.setStatusReq("Pedido Aberto");
+       RequestB.setPriceReq(Double.parseDouble(txt_RequestPrice.getText()));
+       RequestB.setTotalReq(Double.parseDouble(txt_Total.getText()));
+       RequestB.setDateCadReq(timeFormat.format(CurrentDate));
+       
+   }
+
 }

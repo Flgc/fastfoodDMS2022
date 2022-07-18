@@ -18,6 +18,7 @@ public class RequestBeans {
     private Integer codCliReq;
     private String dateCadReq;
     private Double totalReq;
+    private Double priceReq;
     private Integer codEmpReq;
     private Integer codDelReq;
     private String statusReq;
@@ -111,5 +112,13 @@ public class RequestBeans {
     public void setQuantit(List<Integer> Quantit) {
         this.Quantit = Quantit;
     }
+
+    public Double getPriceReq() {
+        return priceReq;
+    }
+
+    public void setPriceReq(Double priceReq) {
+        this.priceReq = priceReq;
+    } 
 
 }

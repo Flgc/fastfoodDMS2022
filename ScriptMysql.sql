@@ -69,7 +69,9 @@ CREATE TABLE `tb_item` (
   `cod_req_ite` int NOT NULL,
   `cod_men_ite` int NOT NULL,
   `quantit_ite` int NOT NULL,
-  PRIMARY KEY (`cod_ite`,`cod_del_ite`,`cod_emp_ite`,`cod_cli_ite`,`cod_req_ite`,`cod_men_ite`,`quantit_ite`)
+  `price_ite` decimal(10,2) NOT NULL,
+  `total_ite` decimal(10,2) NOT NULL,
+  PRIMARY KEY (`cod_ite`,`cod_del_ite`,`cod_emp_ite`,`cod_cli_ite`,`cod_req_ite`,`cod_men_ite`,`quantit_ite`,`price_ite`,`total_ite`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 
@@ -90,7 +92,7 @@ ALTER TABLE tb_request
 ADD time_cad_req time;
 
 
-select * from tb_client
+select * from tb_request
 
 
 
