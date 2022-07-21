@@ -5,6 +5,7 @@
  */
 package DAO;
 
+import Beans.RequestBeans;
 import Utility.DbConnection;
 import java.util.List;
 import java.sql.PreparedStatement;
@@ -12,8 +13,6 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 
@@ -32,7 +31,8 @@ public class RequestDAO {
             ItemsList.add(rs.getString("description_men") );
         }
         } catch (SQLException ex) {
-            JOptionPane.showMessageDialog(null, "Erro ao Realizar a Pesquisa", "Error", 0, new ImageIcon("img/btn_sair.png"));    
+            JOptionPane.showMessageDialog(null, "Erro ao Realizar a Pesquisa", "Error", 0, 
+                    new ImageIcon("img/btn_sair.png"));    
         }        
     }
    
@@ -46,7 +46,8 @@ public class RequestDAO {
                     return rs.getDouble("price_men") ;
                 }
          } catch (SQLException ex) {
-                    JOptionPane.showMessageDialog(null, "Erro ao Realizar a Pesquisa", "Error", 0, new ImageIcon("img/btn_sair.png"));    
+                    JOptionPane.showMessageDialog(null, "Erro ao Realizar a Pesquisa", "Error", 0, 
+                            new ImageIcon("img/btn_sair.png"));    
          }  
           return 0;
    }
@@ -61,12 +62,14 @@ public class RequestDAO {
                     return rs.getInt("cod_men") ;
                 }
          } catch (SQLException ex) {
-                    JOptionPane.showMessageDialog(null, "Erro ao Realizar a Pesquisa", "Error", 0, new ImageIcon("img/btn_sair.png"));    
+                    JOptionPane.showMessageDialog(null, "Erro ao Realizar a Pesquisa", "Error", 0, 
+                            new ImageIcon("img/btn_sair.png"));    
          }  
           return 0;
    }
       
-   public void RequestInsert(String ClientCode, String EmployeeCode, String Total){
+   public void RequestInsert(String ClientCode, String EmployeeCode, String Total, int TableSize, 
+           RequestBeans RequestB){
        Date Date = new Date();
        SimpleDateFormat FormattoDate = new SimpleDateFormat("yyyy-MM-dd");
        SimpleDateFormat FormattoTime = new SimpleDateFormat("HH:mm:ss");
@@ -84,6 +87,7 @@ public class RequestDAO {
                 st.setString(7, FormattoTime.format(Date));    
                 
                 st.execute();
+                ItemsInsert(ClientCode, EmployeeCode, NextRequestCode(), TableSize, RequestB);
                 NextRequestCode();
                 DbConnection.getConnection().commit();
                 JOptionPane.showMessageDialog(null, "Pedido Salvo com Sucesso!", "Atenção !", 1, 
@@ -110,4 +114,25 @@ public class RequestDAO {
        return RequestCod;
    }
    
+   public void ItemsInsert(String ClientCode, String EmployeeCode, String RequestCod, int TableSize,
+            RequestBeans RequestB){
+       for (int i = 0; i < TableSize; i++) {
+            String SQLInsert = "insert into tb_item(cod_del_ite, cod_emp_ite, cod_cli_ite, cod_req_ite, cod_men_ite,"
+                    + "quantit_ite) values (?, ?, ?, ?, ?, ?)"; 
+           try {
+                PreparedStatement st = DbConnection.getConnection().prepareStatement(SQLInsert);
+                st.setString(1, "1");                            // deliveryman implements in the future      
+                st.setString(2, EmployeeCode);           
+                st.setString(3, ClientCode);             
+                st.setString(4, RequestCod);           
+                st.setInt(5, RequestB.getMenuCode(i));                                      
+                st.setInt(6, RequestB.getQuantit(i));           
+                
+                st.execute();                   
+           } catch (SQLException ex) {
+               JOptionPane.showMessageDialog(null, "Erro ao Cadastrar Itens do Pedido no Banco", 
+                   "Error", 0, new ImageIcon("img/btn_sair.png"));    
+           }
+       }   
+   }   
 }

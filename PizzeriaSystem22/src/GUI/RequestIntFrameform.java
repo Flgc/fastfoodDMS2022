@@ -629,7 +629,9 @@ public class RequestIntFrameform extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_btn_itemRemoveActionPerformed
 
     private void btn_finishActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_finishActionPerformed
-        RequestC.RequestController(txt_codCli.getText(), EmployeeCode + "", txt_Total.getText());
+        BeansPopulate();
+        RequestC.RequestController(txt_codCli.getText(), EmployeeCode + "", txt_Total.getText(), 
+                requestTable.getRowCount(), RequestB);
     }//GEN-LAST:event_btn_finishActionPerformed
 
    
@@ -719,10 +721,13 @@ final void TotalCalculate(){
        RequestB.setDateCadReq(dateFormat.format(CurrentDate));
        RequestB.setTimeCadReq(timeFormat.format(CurrentDate));
        RequestB.setStatusReq("Pedido Aberto");
-       RequestB.setPriceReq(Double.parseDouble(txt_RequestPrice.getText()));
-       RequestB.setTotalReq(Double.parseDouble(txt_Total.getText()));
+       RequestB.setTotalReq(Double.parseDouble(txt_Total.getText().replace(',','.')));
        RequestB.setDateCadReq(timeFormat.format(CurrentDate));
        
+       for(int i = 0; i < requestTable.getRowCount() ; i++ ){
+           RequestB.setMenuCode(Integer.parseInt(Model.getValueAt(i, 0).toString()));
+           RequestB.setQuantit(Integer.parseInt(Model.getValueAt(i, 3).toString()));
+       }       
    }
 
 }

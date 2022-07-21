@@ -61,19 +61,51 @@ CREATE TABLE `tb_request` (
 
 -- dbpizzerias.tb_item definition
 
-CREATE TABLE `tb_item` (
-  `cod_ite` int NOT NULL AUTO_INCREMENT,
-  `cod_del_ite` int NOT NULL,
-  `cod_emp_ite` int NOT NULL,
-  `cod_cli_ite` int NOT NULL,
-  `cod_req_ite` int NOT NULL,
-  `cod_men_ite` int NOT NULL,
-  `quantit_ite` int NOT NULL,
-  `price_ite` decimal(10,2) NOT NULL,
-  `total_ite` decimal(10,2) NOT NULL,
-  PRIMARY KEY (`cod_ite`,`cod_del_ite`,`cod_emp_ite`,`cod_cli_ite`,`cod_req_ite`,`cod_men_ite`,`quantit_ite`,`price_ite`,`total_ite`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+--
+-- Estrutura da tabela `item`
+--
 
+CREATE TABLE `tb_item` (
+  `cod_ite` int(11) NOT NULL,
+  `cod_del_ite` int(11) NOT NULL,
+  `cod_emp_ite` int(11) NOT NULL,
+  `cod_cli_ite` int(11) NOT NULL,
+  `cod_req_ite` int(11) NOT NULL,
+  `cod_men_ite` int(11) NOT NULL,
+  `quantit_ite` int(11) NOT NULL
+) 
+
+--
+-- Indexes for table `item`
+--
+ALTER TABLE `tb_item`
+  ADD PRIMARY KEY (`cod_ite`,`cod_del_ite`,`cod_emp_ite`,`cod_cli_ite`,`cod_req_ite`,`cod_men_ite`,`quantit_ite`),
+  ADD KEY `RequestItem` (`cod_req_ite`,`cod_cli_ite`,`cod_emp_ite`,`cod_del_ite`),
+  ADD KEY `MenuItem` (`cod_men_ite`),
+  ADD KEY `DeliverymanItem` (`cod_del_ite`),
+  ADD KEY `EmployeeItem` (`cod_emp_ite`),
+  ADD KEY `ClientItem` (`cod_cli_ite`);
+ 
+--
+-- AUTO_INCREMENT for table `item`
+--
+ALTER TABLE `tb_item`
+  MODIFY `cod_ite` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+--
+-- Constraints for dumped tables 
+
+--
+-- Limitadores para a tabela `item`
+--
+ALTER TABLE `tb_item`
+  ADD CONSTRAINT `FK_MenuItem` FOREIGN KEY (`cod_men_ite`) REFERENCES `tb_menu` (`cod_men`),
+  ADD CONSTRAINT `FK_ClientItem` FOREIGN KEY (`cod_cli_ite`) REFERENCES `tb_client` (`cod_cli`),
+  ADD CONSTRAINT `FK_DeliverymanItem` FOREIGN KEY (`cod_del_ite`) REFERENCES `tb_deliveryman` (`cod_del`),
+  ADD CONSTRAINT `FK_EmployeeItem` FOREIGN KEY (`cod_emp_ite`) REFERENCES `tb_employee` (`cod_emp`),
+  ADD CONSTRAINT `FK_equestItem` FOREIGN KEY (`cod_req_ite`) REFERENCES `tb_request` (`cod_req`);
+ 
+ 
+ 
 
 ALTER TABLE dbpizzerias.tb_request ADD CONSTRAINT FK_requestClient FOREIGN KEY (cod_cli_req) REFERENCES dbpizzerias.tb_client(cod_cli);
 ALTER TABLE dbpizzerias.tb_request ADD CONSTRAINT FK_requestEmploy FOREIGN KEY (cod_emp_req) REFERENCES dbpizzerias.tb_employee(cod_emp);
@@ -93,6 +125,8 @@ ADD time_cad_req time;
 
 
 select * from tb_request
+
+select * from tb_item
 
 
 

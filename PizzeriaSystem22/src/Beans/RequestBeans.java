@@ -18,7 +18,6 @@ public class RequestBeans {
     private Integer codCliReq;
     private String dateCadReq;
     private Double totalReq;
-    private Double priceReq;
     private Integer codEmpReq;
     private Integer codDelReq;
     private String statusReq;
@@ -32,7 +31,22 @@ public class RequestBeans {
         
     }
 
+    public int getMenuCode(int Position) {
+        return MenuCode.get(Position);
+    }
 
+    public void setMenuCode(int MenuCode) {
+        this.MenuCode.add(MenuCode);
+    }
+    
+    public int getQuantit(int Position) {
+        return Quantit.get(Position);
+    }
+
+    public void setQuantit(int Quantit) {
+        this.Quantit.add(Quantit);
+    }
+    
     public Integer getCodReq() {
         return codReq;
     }
@@ -96,29 +110,4 @@ public class RequestBeans {
     public void setTimeCadReq(String timeCadReq) {
         this.timeCadReq = timeCadReq;
     }
-    
-        public int getMenuCode(int position) {
-        return MenuCode.get(position);
-    }
-
-    public void setMenuCode(List<Integer> MenuCode) {
-        this.MenuCode = MenuCode;
-    }
-
-    public int getQuantit(int position) {
-        return Quantit.get(position);
-    }
-
-    public void setQuantit(List<Integer> Quantit) {
-        this.Quantit = Quantit;
-    }
-
-    public Double getPriceReq() {
-        return priceReq;
-    }
-
-    public void setPriceReq(Double priceReq) {
-        this.priceReq = priceReq;
-    } 
-
 }

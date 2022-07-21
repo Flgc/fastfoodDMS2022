@@ -5,6 +5,7 @@
  */
 package Controller;
 
+import Beans.RequestBeans;
 import DAO.RequestDAO;
 import GUI.RequestIntFrameform;
 import java.util.List;
@@ -73,8 +74,9 @@ public class RequestController {
        return true;
     }
     
-    public void RequestController(String ClientCode, String EmployeeCode, String Total){
-        RequestD.RequestInsert(ClientCode, EmployeeCode, Total);
+    public void RequestController(String ClientCode, String EmployeeCode, String Total, int TableSize, 
+           RequestBeans RequestB){
+        RequestD.RequestInsert(ClientCode, EmployeeCode, Total, TableSize, RequestB);
     }
     
     
