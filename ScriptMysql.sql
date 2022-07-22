@@ -75,6 +75,16 @@ CREATE TABLE `tb_item` (
   `quantit_ite` int(11) NOT NULL
 ) 
 
+
+ALTER TABLE `tb_item`
+  ADD PRIMARY KEY (`cod_ite`);
+ 
+ALTER TABLE `tb_item`
+  ADD PRIMARY KEY (`cod_del_ite`),
+  ADD KEY `RequestItem` (`cod_del_ite`),
+  ADD KEY `DeliverymanItem` (`cod_del_ite`);  
+ 
+  
 --
 -- Indexes for table `item`
 --
@@ -124,10 +134,12 @@ ALTER TABLE tb_request
 ADD time_cad_req time;
 
 
-select * from tb_request
+select * from tb_request;
+select * from tb_item;
+select * from tb_deliveryman;
+select * from tb_employee;
 
-select * from tb_item
-
+delete from tb_request; 
 
 
 ALTER TABLE tb_request 

@@ -571,6 +571,7 @@ public class RequestIntFrameform extends javax.swing.JInternalFrame {
         panelRequest.setEnabledAt(1, true);
         panelRequest.setSelectedIndex(1);
         jtf_txt_NameClient.setText(txt_nameCli.getText());
+        btn_finish.setEnabled(false);
     }//GEN-LAST:event_btn_RequestActionPerformed
 
     private void txt_RequestItemSearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_RequestItemSearchActionPerformed
@@ -632,6 +633,7 @@ public class RequestIntFrameform extends javax.swing.JInternalFrame {
         BeansPopulate();
         RequestC.RequestController(txt_codCli.getText(), EmployeeCode + "", txt_Total.getText(), 
                 requestTable.getRowCount(), RequestB);
+        FinishClean();
     }//GEN-LAST:event_btn_finishActionPerformed
 
    
@@ -709,11 +711,14 @@ final void TotalCalculate(){
        for(int i = 0; i < requestTable.getRowCount(); i++) {
            RequestTotal += Double.parseDouble(Model.getValueAt(i, 4).toString());
        }
+       if (RequestTotal > 0){
+           btn_finish.setEnabled(true);
+       }
        txt_Total.setText(decimalFormat.format(RequestTotal).replace('.', ','));
 }
 
    
-   final void BeansPopulate(){
+final void BeansPopulate(){
        CurrentDate = new Date();
        RequestB.setCodCliReq(Integer.parseInt(txt_codCli.getText()));
        RequestB.setCodEmpReq(EmployeeCode);
@@ -728,6 +733,14 @@ final void TotalCalculate(){
            RequestB.setMenuCode(Integer.parseInt(Model.getValueAt(i, 0).toString()));
            RequestB.setQuantit(Integer.parseInt(Model.getValueAt(i, 3).toString()));
        }       
-   }
+}
+
+final void FinishClean() {
+    txt_Total.setText("");
+    txt_RequestCode.setText("");
+    btn_finish.setEnabled(false);
+    Model.setNumRows(0);
+
+}
 
 }
