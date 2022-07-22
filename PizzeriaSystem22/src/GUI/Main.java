@@ -5,10 +5,19 @@
  */
 package GUI;
 
+import Utility.DbConnection;
+import java.sql.Connection;
 import Utility.ScreenBackground;
 import java.awt.GridLayout;
+import java.io.InputStream;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
+import net.sf.jasperreports.engine.JRException;
+import net.sf.jasperreports.engine.JasperFillManager;
+import net.sf.jasperreports.engine.JasperPrint;
+import net.sf.jasperreports.view.JasperViewer;
 
 /**
  *
@@ -21,10 +30,8 @@ public class Main extends javax.swing.JFrame {
     EmployeeIntFrameform employeeIntFrameform;
     DeliverymanIntFrameform deliverymanIntFrameform;    
     MenuIntFrameform menuIntFrameform;    
-    RequestIntFrameform requestIntFrameform; 
-    
-    
-    
+    RequestIntFrameform requestIntFrameform;     
+    Connection conect = null;
     
     public Main() {
         initComponents();
@@ -49,6 +56,8 @@ public class Main extends javax.swing.JFrame {
         ImageIcon icon = new ImageIcon(getClass().getResource("/Icons/ico_cardapio.png"));
         setIconImage(icon.getImage());    
         
+        conect = DbConnection.getConnection();
+        
     }
 
     /**
@@ -69,6 +78,8 @@ public class Main extends javax.swing.JFrame {
         Jfm_Cashier = new javax.swing.JMenu();
         Jfm_CashierRequest = new javax.swing.JMenuItem();
         Jfm_Report = new javax.swing.JMenu();
+        Jfm_ReportMenuClients = new javax.swing.JMenuItem();
+        Jfm_ReportMenuRequest = new javax.swing.JMenuItem();
         Jfm_Exit = new javax.swing.JMenu();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -141,6 +152,18 @@ public class Main extends javax.swing.JFrame {
 
         Jfm_Report.setText("Relatórios");
         Jfm_Report.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+
+        Jfm_ReportMenuClients.setText("Clientes");
+        Jfm_ReportMenuClients.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Jfm_ReportMenuClientsActionPerformed(evt);
+            }
+        });
+        Jfm_Report.add(Jfm_ReportMenuClients);
+
+        Jfm_ReportMenuRequest.setText("Pedidos");
+        Jfm_Report.add(Jfm_ReportMenuRequest);
+
         jMenuBar1.add(Jfm_Report);
 
         Jfm_Exit.setText("Sair");
@@ -201,6 +224,16 @@ public class Main extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_Jfm_RegistrationComponentResized
 
+    private void Jfm_ReportMenuClientsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Jfm_ReportMenuClientsActionPerformed
+        try {
+             InputStream path = getClass().getResourceAsStream("/src/Reports/ClientReport.jasper");
+            JasperPrint print = JasperFillManager.fillReport(path, null, conect);
+            JasperViewer.viewReport(print, false);
+        } catch (JRException ex) {
+            Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_Jfm_ReportMenuClientsActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -246,6 +279,8 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JMenuItem Jfm_RegistrationMenuEmployee;
     private javax.swing.JMenuItem Jfm_RegistrationMenuMenu;
     private javax.swing.JMenu Jfm_Report;
+    private javax.swing.JMenuItem Jfm_ReportMenuClients;
+    private javax.swing.JMenuItem Jfm_ReportMenuRequest;
     private javax.swing.JMenuBar jMenuBar1;
     // End of variables declaration//GEN-END:variables
 }
