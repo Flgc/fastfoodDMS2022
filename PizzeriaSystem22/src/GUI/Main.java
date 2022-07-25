@@ -52,6 +52,8 @@ public class Main extends javax.swing.JFrame {
         Jfm_Exit.setIcon(new ImageIcon(getClass().getResource("/Icons/ico_sair.png")));
         Jfm_CashierRequest.setIcon(new ImageIcon(getClass().getResource("/Icons/ico_pedidos.png")));
         
+        Jfm_RequestScreenScr.setIcon(new ImageIcon(getClass().getResource("/Icons/ico_tela.png")));
+        
         // Bar Icon from operational system
         ImageIcon icon = new ImageIcon(getClass().getResource("/Icons/ico_cardapio.png"));
         setIconImage(icon.getImage());    
@@ -80,6 +82,8 @@ public class Main extends javax.swing.JFrame {
         Jfm_Report = new javax.swing.JMenu();
         Jfm_ReportMenuClients = new javax.swing.JMenuItem();
         Jfm_ReportMenuRequest = new javax.swing.JMenuItem();
+        Jfm_RequestScreen = new javax.swing.JMenu();
+        Jfm_RequestScreenScr = new javax.swing.JMenuItem();
         Jfm_Exit = new javax.swing.JMenu();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -166,8 +170,25 @@ public class Main extends javax.swing.JFrame {
 
         jMenuBar1.add(Jfm_Report);
 
+        Jfm_RequestScreen.setText("Tela Pedidos");
+
+        Jfm_RequestScreenScr.setText("Tela");
+        Jfm_RequestScreenScr.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Jfm_RequestScreenScrActionPerformed(evt);
+            }
+        });
+        Jfm_RequestScreen.add(Jfm_RequestScreenScr);
+
+        jMenuBar1.add(Jfm_RequestScreen);
+
         Jfm_Exit.setText("Sair");
         Jfm_Exit.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        Jfm_Exit.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Jfm_ExitActionPerformed(evt);
+            }
+        });
         jMenuBar1.add(Jfm_Exit);
 
         setJMenuBar(jMenuBar1);
@@ -180,7 +201,7 @@ public class Main extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 279, Short.MAX_VALUE)
+            .addGap(0, 281, Short.MAX_VALUE)
         );
 
         pack();
@@ -234,6 +255,15 @@ public class Main extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_Jfm_ReportMenuClientsActionPerformed
 
+    private void Jfm_ExitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Jfm_ExitActionPerformed
+        dispose();
+    }//GEN-LAST:event_Jfm_ExitActionPerformed
+
+    private void Jfm_RequestScreenScrActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Jfm_RequestScreenScrActionPerformed
+        requestScreenScr = new RequestScreenScr();
+        requestScreenScr
+    }//GEN-LAST:event_Jfm_RequestScreenScrActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -281,6 +311,8 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JMenu Jfm_Report;
     private javax.swing.JMenuItem Jfm_ReportMenuClients;
     private javax.swing.JMenuItem Jfm_ReportMenuRequest;
+    private javax.swing.JMenu Jfm_RequestScreen;
+    private javax.swing.JMenuItem Jfm_RequestScreenScr;
     private javax.swing.JMenuBar jMenuBar1;
     // End of variables declaration//GEN-END:variables
 }
