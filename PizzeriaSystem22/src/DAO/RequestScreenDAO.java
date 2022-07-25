@@ -5,6 +5,7 @@
  */
 package DAO;
 
+import Utility.Brokers;
 import Utility.DbConnection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -29,8 +30,11 @@ public class RequestScreenDAO {
                     PreparedStatement st = DbConnection.getConnection().prepareStatement(SQLSelection);
                     ResultSet rs = st.executeQuery();
                     while(rs.next()){
-                        mModel.addRow(new Object[] {rs.getString("cod_req"), rs.getString("date_cad_req"),
+                        mModel.addRow(new Object[] {rs.getString("cod_req"), 
+                            Brokers.DateConverterUsToBr(rs.getString("date_cad_req")),
                             rs.getString("time_cad_req"), rs.getString("status_req")});
+                        
+                        
                     }
              } catch (SQLException ex) {
                         JOptionPane.showMessageDialog(null, "Erro ao Realizar a Pesquisa", "Error", 0, 

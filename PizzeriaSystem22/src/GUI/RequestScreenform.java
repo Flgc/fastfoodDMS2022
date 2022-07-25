@@ -46,7 +46,13 @@ public class RequestScreenform extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         Btn_update.setText("Atualizar");
+        Btn_update.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Btn_updateActionPerformed(evt);
+            }
+        });
 
+        tb_RequestScreenTable.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
         tb_RequestScreenTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
@@ -63,6 +69,7 @@ public class RequestScreenform extends javax.swing.JFrame {
                 return canEdit [columnIndex];
             }
         });
+        tb_RequestScreenTable.setRowHeight(18);
         jScrollPane1.setViewportView(tb_RequestScreenTable);
         if (tb_RequestScreenTable.getColumnModel().getColumnCount() > 0) {
             tb_RequestScreenTable.getColumnModel().getColumn(3).setResizable(false);
@@ -83,8 +90,8 @@ public class RequestScreenform extends javax.swing.JFrame {
                 .addContainerGap()
                 .addComponent(Btn_update)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 376, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(34, Short.MAX_VALUE))
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 248, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(282, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -100,6 +107,11 @@ public class RequestScreenform extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void Btn_updateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Btn_updateActionPerformed
+        Model.setNumRows(0);
+        RequestScreenC.findControll(Model);
+    }//GEN-LAST:event_Btn_updateActionPerformed
 
     /**
      * @param args the command line arguments
