@@ -5,20 +5,28 @@
  */
 package GUI;
 
+import Controller.RequestScreenController;
 import javax.swing.JFrame;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
  * @author fabio
  */
-public class RequestScreen extends javax.swing.JFrame {
+public class RequestScreenform extends javax.swing.JFrame {
 
-    /**
-     * Creates new form RequestScreen
-     */
-    public RequestScreen() {
+    RequestScreenController RequestScreenC;
+    DefaultTableModel Model;
+    
+    public RequestScreenform() {
         initComponents();
         setExtendedState(JFrame.MAXIMIZED_BOTH);
+        
+        RequestScreenC = new RequestScreenController();
+        Model = (DefaultTableModel) tb_RequestScreenTable.getModel();
+        
+        Model.setNumRows(0);
+        RequestScreenC.findControll(Model);
     }
 
     /**
@@ -33,13 +41,13 @@ public class RequestScreen extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         Btn_update = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
-        RequestScreenTable = new javax.swing.JTable();
+        tb_RequestScreenTable = new javax.swing.JTable();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         Btn_update.setText("Atualizar");
 
-        RequestScreenTable.setModel(new javax.swing.table.DefaultTableModel(
+        tb_RequestScreenTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
@@ -55,9 +63,9 @@ public class RequestScreen extends javax.swing.JFrame {
                 return canEdit [columnIndex];
             }
         });
-        jScrollPane1.setViewportView(RequestScreenTable);
-        if (RequestScreenTable.getColumnModel().getColumnCount() > 0) {
-            RequestScreenTable.getColumnModel().getColumn(3).setResizable(false);
+        jScrollPane1.setViewportView(tb_RequestScreenTable);
+        if (tb_RequestScreenTable.getColumnModel().getColumnCount() > 0) {
+            tb_RequestScreenTable.getColumnModel().getColumn(3).setResizable(false);
         }
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -110,28 +118,29 @@ public class RequestScreen extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(RequestScreen.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(RequestScreenform.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(RequestScreen.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(RequestScreenform.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(RequestScreen.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(RequestScreenform.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(RequestScreen.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(RequestScreenform.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new RequestScreen().setVisible(true);
+                new RequestScreenform().setVisible(true);
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton Btn_update;
-    private javax.swing.JTable RequestScreenTable;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTable tb_RequestScreenTable;
     // End of variables declaration//GEN-END:variables
 }

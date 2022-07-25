@@ -31,6 +31,7 @@ public class Main extends javax.swing.JFrame {
     DeliverymanIntFrameform deliverymanIntFrameform;    
     MenuIntFrameform menuIntFrameform;    
     RequestIntFrameform requestIntFrameform;     
+    RequestScreenform requestScreefrom; 
     Connection conect = null;
     
     public Main() {
@@ -260,8 +261,8 @@ public class Main extends javax.swing.JFrame {
     }//GEN-LAST:event_Jfm_ExitActionPerformed
 
     private void Jfm_RequestScreenScrActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Jfm_RequestScreenScrActionPerformed
-        requestScreenScr = new RequestScreenScr();
-        requestScreenScr
+        requestScreefrom = new RequestScreenform();
+        requestScreefrom.setVisible(true);
     }//GEN-LAST:event_Jfm_RequestScreenScrActionPerformed
 
     /**
