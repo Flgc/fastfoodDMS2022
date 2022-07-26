@@ -49,12 +49,18 @@ public class Main extends javax.swing.JFrame {
         Jfm_RegistrationMenuDeliveryman.setIcon(new ImageIcon(getClass().getResource("/Icons/ico_boy.png")));
         Jfm_Registration.setIcon(new ImageIcon(getClass().getResource("/Icons/inserir-32.png")));
         Jfm_Cashier.setIcon(new ImageIcon(getClass().getResource("/Icons/ico_caixa.png")));
+        
         Jfm_Report.setIcon(new ImageIcon(getClass().getResource("/Icons/ico_rel.png")));
+        Jfm_ReportMenuClients.setIcon(new ImageIcon(getClass().getResource("/Icons/ico_rel_clie1.png")));
+        Jfm_ReportMenuRequest.setIcon(new ImageIcon(getClass().getResource("/Icons/ico_rel_clie2.png")));
+        
         Jfm_Exit.setIcon(new ImageIcon(getClass().getResource("/Icons/ico_sair.png")));
+        Jfm_Exit_exit.setIcon(new ImageIcon(getClass().getResource("/Icons/ico_exit.png")));
+        
         Jfm_CashierRequest.setIcon(new ImageIcon(getClass().getResource("/Icons/ico_pedidos.png")));
         
         Jfm_RequestScreen.setIcon(new ImageIcon(getClass().getResource("/Icons/ico_tela.png")));
-        Jfm_RequestScreenScr.setIcon(new ImageIcon(getClass().getResource("/Icons/ico_tela.png")));
+        Jfm_RequestScreenScr.setIcon(new ImageIcon(getClass().getResource("/Icons/ico_tela_pedido2.png")));
         
         // Bar Icon from operational system
         ImageIcon icon = new ImageIcon(getClass().getResource("/Icons/ico_cardapio.png"));
