@@ -17,11 +17,11 @@
 
 <div align="center">
 
-[**Sobre / About**](https://github.com/Flgc/HotelSystem22#-sobre-o-projeto) &nbsp;&nbsp;**|**&nbsp;&nbsp;
-[**Demo**](https://github.com/Flgc/HotelSystem22#-demonstra%C3%A7%C3%A3o-web) &nbsp;&nbsp;**|**&nbsp;&nbsp;
-[**Tecnologias / Tecnology**](https://github.com/Flgc/HotelSystem22#-tecnologias-utilizadas) &nbsp;&nbsp;**|**&nbsp;&nbsp;
-[**Instalação e execução / Installation and execution**](https://github.com/Flgc/HotelSystem22#-como-instalar-e-executar-o-projeto) &nbsp;&nbsp;**|**&nbsp;&nbsp;
-[**Contato / Contact**](https://github.com/Flgc/HotelSystem22#-contato) &nbsp;&nbsp;**|**&nbsp;&nbsp;
+[**Sobre / About**](https://github.com/Flgc/fastfoodDMS2022#-sobre-o-projeto--about-the-project#-sobre-o-projeto) &nbsp;&nbsp;**|**&nbsp;&nbsp;
+[**Demo**](https://github.com/Flgc/fastfoodDMS2022#-demo) &nbsp;&nbsp;**|**&nbsp;&nbsp;
+[**Tecnologias / Tecnology**](https://github.com/Flgc/fastfoodDMS2022#-tecnologias--tecnology) &nbsp;&nbsp;**|**&nbsp;&nbsp;
+[**Instalação e execução / Installation and execution**](https://github.com/Flgc/fastfoodDMS2022#-instala%C3%A7%C3%A3o-e-execu%C3%A7%C3%A3o--installation-and-execution) &nbsp;&nbsp;**|**&nbsp;&nbsp;
+[**Contato / Contact**](https://github.com/Flgc/fastfoodDMS2022#-contato--contact) &nbsp;&nbsp;**|**&nbsp;&nbsp;
 
 </div><br><br>
 
